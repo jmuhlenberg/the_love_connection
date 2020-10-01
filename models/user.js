@@ -1,5 +1,5 @@
-
 const mongoose = require('mongoose')
+const Likes = require('./likes.js')
 
 const userSchema = new mongoose.Schema({
 
@@ -11,7 +11,9 @@ const userSchema = new mongoose.Schema({
   build: String,
   eyeColor: String,
   hairColor: String,
-  image: String
+  image: String,
+  likes: [Likes.schema]
+
 })
 
 const user = mongoose.model('user', userSchema)
