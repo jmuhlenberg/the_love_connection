@@ -16,6 +16,13 @@ user.get('/', (req,res) => {
   })
 })
 
+// SPECIFIC USER ROUTE
+user.get('/:id', (req,res) => {
+  User.find({}, (err, foundUser) => {
+    res.json(foundUser)
+  }).where('userid').eq('karen')
+})
+
 // CREATE ROUTE
 user.post('/', (req, res) => {
   User.create(req.body, (err, createdUser) => {
@@ -24,6 +31,8 @@ user.post('/', (req, res) => {
     })
   })
 })
+
+/// READY TO GO
 
 // UPDATE ROUTE
 user.put('/:id', (req, res) => {
@@ -436,19 +445,11 @@ user.get('/seed', (req, res) => {
 
         },
         {
-<<<<<<< HEAD
           userid: "samantha722",
           name: "Samantha",
           age: "adults",
           height: "tall",
           gender: "female",
-=======
-          userid: "sonny721",
-          name: "Sonny",
-          age: "adults",
-          height: "tall",
-          gender: "male",
->>>>>>> d98169ba9718c603896f7b1bc218895bd3621d42
           build: "athletic",
           eyeColor: "brown",
           hairColor: "red",
@@ -457,11 +458,7 @@ user.get('/seed', (req, res) => {
             {
             age: "young",
             height: "medium",
-<<<<<<< HEAD
             gender: "male",
-=======
-            gender: "female",
->>>>>>> d98169ba9718c603896f7b1bc218895bd3621d42
             build: "slender",
             eyeColor: "blue",
             hairColor: "red"
@@ -469,19 +466,11 @@ user.get('/seed', (req, res) => {
 
         },
         {
-<<<<<<< HEAD
           userid: "fredrica722",
           name: "Fredrica",
           age: "adults",
           height: "medium",
           gender: "female",
-=======
-          userid: "fred721",
-          name: "Fredo",
-          age: "adults",
-          height: "medium",
-          gender: "male",
->>>>>>> d98169ba9718c603896f7b1bc218895bd3621d42
           build: "slender",
           eyeColor: "brown",
           hairColor: "red",
@@ -490,11 +479,7 @@ user.get('/seed', (req, res) => {
             {
             age: "sunset",
             height: "medium",
-<<<<<<< HEAD
             gender: "male",
-=======
-            gender: "female",
->>>>>>> d98169ba9718c603896f7b1bc218895bd3621d42
             build: "athletic",
             eyeColor: "blue",
             hairColor: "blonde"

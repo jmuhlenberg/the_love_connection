@@ -17,13 +17,18 @@ class App extends React.Component {
     hairColor: '',
     image: '',
     likes: {},
-    users: []
+    users: [],
+    likesAge: '',
+    likesHeight: '',
+    likesGender: '',
+    likesBuild: '',
+    likesHairColor: '',
+    likesEyeColor: '',
+    currUse: ''
   }
 
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value })
-    console.log(event.target.value);
-    console.log(event.target.id);
   }
 
   //create new user
@@ -35,6 +40,33 @@ class App extends React.Component {
       this.setState({ users: response.data, userid: '', name:'', age: '', height: '', gender: '', build: '', eyeColor: '', hairColor: '', image: '', likes:[]}),
       console.log(response.data);
     })
+  }
+
+  //GET Matches (Log In function?)
+  getMatches = (event) => {
+    console.log(this.state.currUse);
+    axios.get(`/user/${this.state.currUse}`).then(
+      (response) => {
+        this.setState({
+          userid: response.data[0].userid,
+          name: response.data[0].name,
+          age: response.data[0].age,
+          height: response.data[0].height,
+          gender: response.data[0].gender,
+          build: response.data[0].build,
+          eyeColor: response.data[0].eyeColor,
+          hairColor: response.data[0].hairColor,
+          image: response.data[0].image,
+          likesAge: response.data[0].likes.age,
+          likesHeight: response.data[0].likes.height,
+          likesGender: response.data[0].likes.gender,
+          likesBuild: response.data[0].likes.build,
+          likesEyeColor: response.data[0].likes.eyeColor,
+          likesHairColor: response.data[0].likes.hairColor
+        })
+        console.log(this.state);
+      }
+    )
   }
 
   //update user info
@@ -53,7 +85,7 @@ class App extends React.Component {
       eyeColor: '',
       hairColor: '',
       image: '',
-      likes: []
+      likes: {}
     })
   })
   }
@@ -67,6 +99,14 @@ class App extends React.Component {
   }
 
   render = () => {
+    // const readAllUsers = {this.componentDidMount}
+    // {this.state.users.map( user => {
+    //   return(
+    //     <li key={user._id}>
+    //       <h5>{user.name}</h5>
+    //     </li>
+    // )})}
+
     return(
       <div className='siteContainer'>
         <div className='signUp'>
@@ -207,17 +247,27 @@ class App extends React.Component {
           </details>
         </div>
         <div className='log-in'>
-
+          <form onSubmit={this.getMatches}>
+            <label htmlFor='currUse'> User ID: </label>
+            <input type='text' id='currUse' onChange={this.handleChange}/>
+            <input type='submit'/>
+          </form>
         </div>
         <div className='display-results'>
+        <button onClick={this.getMatches}>Show My Results</button>
+        <h3>Welcome {this.state.name}</h3>
           <ul>
-            {this.state.users.map( user => {
-              <li>
-                <h5>Matches you in _ categories</h5>
-                <h5>{user.name}</h5>
-                <h5>{user.image}</h5>
-              </li>
-            })}
+          {
+            this.state.users.filter( user => {
+            return (user.gender === this.state.likesGender && user.age === this.state.likesAge && user.height === this.state.likesHeight && user.build === this.state.likesBuild && user.eyeColor === this.state.eyeColor && user.hairColor === this.state.hairColor)
+          }).map( user => {
+              return(
+                <li key={user._id}>
+                  <h4>{user.name}</h4>
+                  <button value={user._id}>Check Match</button>
+                </li>)
+            })
+          }
           </ul>
         </div>
       </div>
