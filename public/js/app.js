@@ -1,11 +1,6 @@
 // console.log('connected to app.js');
 
-//idea to make height searchable by what the user selects in Likes
-const littleHeight = []
-const medHeight = []
-const tallHeight = []
-
-// we may want to limit the user's input - make selects for hairColor, eyeColor, build, gender, height. and may need to turn age into a number.
+// we may want to limit the user's input - make selects for hairColor, eyeColor, build, gender, height, age.
 
 //would like to compartmentalize the app at somepoint - i.e. a class for Sign Up, a class for Log In, etc.
 
