@@ -16,6 +16,13 @@ user.get('/', (req,res) => {
   })
 })
 
+// SPECIFIC USER ROUTE
+user.get('/:id', (req,res) => {
+  User.find({}, (err, foundUser) => {
+    res.json(foundUser)
+  }).where('userid').eq('karen')
+})
+
 // CREATE ROUTE
 user.post('/', (req, res) => {
   User.create(req.body, (err, createdUser) => {
@@ -24,6 +31,8 @@ user.post('/', (req, res) => {
     })
   })
 })
+
+/// READY TO GO
 
 // UPDATE ROUTE
 user.put('/:id', (req, res) => {
@@ -436,11 +445,11 @@ user.get('/seed', (req, res) => {
 
         },
         {
-          userid: "sonny721",
-          name: "Sonny",
+          userid: "samantha722",
+          name: "Samantha",
           age: "adults",
           height: "tall",
-          gender: "male",
+          gender: "female",
           build: "athletic",
           eyeColor: "brown",
           hairColor: "red",
@@ -449,7 +458,7 @@ user.get('/seed', (req, res) => {
             {
             age: "young",
             height: "medium",
-            gender: "female",
+            gender: "male",
             build: "slender",
             eyeColor: "blue",
             hairColor: "red"
@@ -457,11 +466,11 @@ user.get('/seed', (req, res) => {
 
         },
         {
-          userid: "fred721",
-          name: "Fredo",
+          userid: "fredrica722",
+          name: "Fredrica",
           age: "adults",
           height: "medium",
-          gender: "male",
+          gender: "female",
           build: "slender",
           eyeColor: "brown",
           hairColor: "red",
@@ -470,7 +479,7 @@ user.get('/seed', (req, res) => {
             {
             age: "sunset",
             height: "medium",
-            gender: "female",
+            gender: "male",
             build: "athletic",
             eyeColor: "blue",
             hairColor: "blonde"
