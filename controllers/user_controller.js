@@ -74,8 +74,9 @@ user.get('/seed', (req, res) => {
             eyeColor: "blue",
             hairColor: "brown"
 
-          }],
-          [{
+          }]
+        },
+          {
             userid: "",
             name: "John",
             age: "27",
@@ -93,8 +94,9 @@ user.get('/seed', (req, res) => {
               eyeColor: "brown",
               hairColor: "brown"
 
-            }],
-            [{
+            }]
+          },
+            {
               userid: "",
               name: "Daniel",
               age: "34",
@@ -112,8 +114,9 @@ user.get('/seed', (req, res) => {
                 eyeColor: "brown",
                 hairColor: "brown"
 
-              }],
-              [{
+              }]
+            },
+              {
                 userid: "",
                 name: "Kellen",
                 age: "38",
@@ -131,8 +134,9 @@ user.get('/seed', (req, res) => {
                   eyeColor: "brown",
                   hairColor: "brown"
 
-                }],
-                [{
+                }]
+              },
+                {
                   userid: "",
                   name: "Alby",
                   age: "27",
@@ -150,8 +154,9 @@ user.get('/seed', (req, res) => {
                     eyeColor: "brown",
                     hairColor: "brown"
 
-                  }],
-                  [{
+                  }]
+                },
+                  {
                     userid: "",
                     name: "Matt",
                     age: "40",
@@ -169,8 +174,9 @@ user.get('/seed', (req, res) => {
                       eyeColor: "blue",
                       hairColor: "blonde"
 
-                    }],
-                    [{
+                    }]
+                  },
+                    {
                       userid: "",
                       name: "Tim",
                       age: "48",
@@ -188,8 +194,9 @@ user.get('/seed', (req, res) => {
                         eyeColor: "green",
                         hairColor: "brown"
 
-                      }],
-                      [{
+                      }]
+                    },
+                      {
                         userid: "",
                         name: "William",
                         age: "68",
@@ -207,8 +214,9 @@ user.get('/seed', (req, res) => {
                           eyeColor: "brown",
                           hairColor: "brown"
 
-                        }],
-                        [{
+                        }]
+                      },
+                        {
                           userid: "",
                           name: "Paul",
                           age: "22",
@@ -226,8 +234,9 @@ user.get('/seed', (req, res) => {
                             eyeColor: "green",
                             hairColor: "brown"
 
-                          }],
-                          [{
+                          }]
+                        },
+                          {
                             userid: "",
                             name: "Ryan",
                             age: "26",
@@ -245,8 +254,9 @@ user.get('/seed', (req, res) => {
                               eyeColor: "blue",
                               hairColor: "black"
 
-                            }],
-                            [{
+                            }]
+                          },
+                            {
                               userid: "",
                               name: "Danielle",
                               age: "32",
@@ -264,8 +274,9 @@ user.get('/seed', (req, res) => {
                                 eyeColor: "blue",
                                 hairColor: "black"
 
-                              }],
-                              [{
+                              }]
+                            },
+                              {
                                 userid: "",
                                 name: "Mary Jane",
                                 age: "32",
@@ -283,8 +294,9 @@ user.get('/seed', (req, res) => {
                                   eyeColor: "brown",
                                   hairColor: "black"
 
-                                }],
-                                [{
+                                }]
+                              },
+                                {
                                   userid: "",
                                   name: "Daisey",
                                   age: "23",
@@ -302,8 +314,9 @@ user.get('/seed', (req, res) => {
                                     eyeColor: "blue",
                                     hairColor: "gray"
 
-                                  }],
-                                  [{
+                                  }]
+                                },
+                                  {
                                     userid: "",
                                     name: "Tina",
                                     age: "45",
@@ -321,8 +334,9 @@ user.get('/seed', (req, res) => {
                                       eyeColor: "blue",
                                       hairColor: "blonde"
 
-                                    }],
-                                    [{
+                                    }]
+                                  },
+                                    {
                                       userid: "",
                                       name: "Sarah",
                                       age: "23",
@@ -340,8 +354,9 @@ user.get('/seed', (req, res) => {
                                         eyeColor: "blue",
                                         hairColor: "white"
 
-                                      }],
-                                      [{
+                                      }]
+                                    },
+                                      {
                                         userid: "",
                                         name: "Riley",
                                         age: "19",
@@ -359,8 +374,9 @@ user.get('/seed', (req, res) => {
                                           eyeColor: "blue",
                                           hairColor: "black"
 
-                                        }],
-                                        [{
+                                        }]
+                                      },
+                                        {
                                           userid: "",
                                           name: "Dipsy",
                                           age: "51",
@@ -378,8 +394,9 @@ user.get('/seed', (req, res) => {
                                             eyeColor: "brown",
                                             hairColor: "black"
 
-                                          }],
-                                          [{
+                                          }]
+                                        },
+                                          {
                                             userid: "",
                                             name: "Prissy",
                                             age: "29",
@@ -397,8 +414,9 @@ user.get('/seed', (req, res) => {
                                               eyeColor: "green",
                                               hairColor: "black"
 
-                                            }],
-                                            [{
+                                            }]
+                                          },
+                                            {
                                               userid: "",
                                               name: "Faye",
                                               age: "48",
@@ -416,8 +434,9 @@ user.get('/seed', (req, res) => {
                                                 eyeColor: "brown",
                                                 hairColor: "black"
 
-                                              }],
-                                              [{
+                                              }]
+                                            },
+                                              {
                                                 userid: "",
                                                 name: "Violet",
                                                 age: "36",
