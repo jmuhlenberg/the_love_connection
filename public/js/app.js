@@ -26,11 +26,6 @@ class App extends React.Component {
     console.log(event.target.id);
   }
 
-  // handleLikesSelect = (event) => {
-  //   this.setState({ likes[0].[event.target.id]: event.target.value })
-  //   console.log(event.target.value);
-  // }
-
   //create new user
   handleSubmit = (event) => {
   event.preventDefault()
@@ -218,7 +213,9 @@ class App extends React.Component {
           <ul>
             {this.state.users.map( user => {
               <li>
-
+                <h5>Matches you in _ categories</h5>
+                <h5>{user.name}</h5>
+                <h5>{user.image}</h5>
               </li>
             })}
           </ul>
