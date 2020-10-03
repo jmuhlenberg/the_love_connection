@@ -227,12 +227,16 @@ class App extends React.Component {
           hairColor: this.state.likesHairColor
         }
       }
-    })
-    axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
-      this.setState({
-        thisusr: response.data,
+    }, () => {
+      console.log('SetState finished')
+      console.log('state variables after move', this.state)
+
+      axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
+        this.setState({
+          thisusr: response.data,
+        })
+        console.log("response data from put: ", response.data);
       })
-      console.log("response data from put: ", response.data);
     })
   }
 
@@ -245,16 +249,12 @@ class App extends React.Component {
   }
 
   render = () => {
-    console.log(this.state.thisusr, this.state.users);
+//    console.log(this.state.thisusr, this.state.users);
+
     const matches = this.state.thisusr
       ? this.state.users.filter(user => {
-        console.log('were getting here');
-        console.log(this.state.thisusr);
-        console.log(this.state.users);
         const attributes = Object.keys(this.state.thisusr.likes).slice(1)
-        console.log(attributes)
         for(let x=0;x<6;x++){
-          console.log(this.state.thisusr.likes[attributes[x]], user[attributes[x]])
           if(this.state.thisusr.likes[attributes[x]] !== user[attributes[x]]){
             return false
           }
@@ -270,6 +270,7 @@ class App extends React.Component {
               handleChange={this.handleChange.bind(this)}
               handleSubmit={this.updateUser.bind(this)}
               stateThisUsr={this.state.thisusr}
+              stateUpdateUsr={this.state.updateUsr}
               btnText="Update"
               summText="Click Here to Update User Profile"
             />
@@ -285,6 +286,7 @@ class App extends React.Component {
             handleChange={this.handleChange.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}  //this.createuser.bind
             stateThisUsr={this.state.thisusr}
+            stateUpdateUsr={this.state.updateUsr}
             btnText="Sign Up"
             summText="Click Here to Sign Up"
           />
