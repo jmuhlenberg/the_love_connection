@@ -1,4 +1,3 @@
-
 const express = require('express')
 const user = express.Router()
 const User = require('../models/user.js')
@@ -16,6 +15,8 @@ user.get('/', (req,res) => {
   })
 })
 
+
+
 // SPECIFIC USER ROUTE
 user.get('/:id', (req,res) => {
   User.findOne({
@@ -24,6 +25,8 @@ user.get('/:id', (req,res) => {
     res.json(foundUser)
   })
 })
+
+
 
 // CREATE ROUTE
 user.post('/', (req, res) => {
@@ -35,11 +38,9 @@ user.post('/', (req, res) => {
   })
 })
 
-/// READY TO GO
 
 // UPDATE ROUTE
 user.put('/:id', async (req, res) => {
-
   await User.findByIdAndUpdate(
     req.params.id,
     req.body,

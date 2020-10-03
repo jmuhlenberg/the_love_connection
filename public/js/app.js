@@ -291,18 +291,20 @@ class App extends React.Component {
           </div>
 
     return(
+
       <div className='siteContainer'>
-        <div className='signUp'>
-          {greetingTag}
-        </div>
-        <div className='log-in'>
-          <form onSubmit={this.getMatches}>
-            <label htmlFor='currUse'> User ID: </label>
-            <input type='text' id='currUse' onChange={this.handleChange}/>
-            <input type='submit'/>
-          </form>
-        </div>
-        <div>
+        <div className='action'>
+          <div className='signUp'>
+            {greetingTag}
+          </div>
+          <div className='logIn'>
+          <h2>Log In</h2>
+            <form onSubmit={this.getMatches}>
+              <label htmlFor='currUse'> User ID: </label>
+              <input type='text' id='currUse' onChange={this.handleChange}/>
+              <input type='submit'/>
+            </form>
+          </div>
         </div>
         <div className='display-results'>
           <ul>
