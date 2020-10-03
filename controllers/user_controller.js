@@ -18,9 +18,9 @@ user.get('/', (req,res) => {
 
 // SPECIFIC USER ROUTE
 user.get('/:id', (req,res) => {
-  User.find({}, (err, foundUser) => {
+  User.findOne({userid: req.params.id}, (err, foundUser) => {
     res.json(foundUser)
-  }).where('userid').eq('karen')
+  })
 })
 
 // CREATE ROUTE
@@ -36,9 +36,8 @@ user.post('/', (req, res) => {
 
 // UPDATE ROUTE
 user.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(
-    req.params.id,
-    req.body,
+  User.findOneAndUpdate(
+    {userid: req.params.id},
     {new: true},
     (err, updatedUser) => {
       if (err) {
