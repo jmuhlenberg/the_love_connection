@@ -220,12 +220,16 @@ class App extends React.Component {
           hairColor: this.state.likesHairColor
         }
       }
-    })
-    axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
-      this.setState({
-        thisusr: response.data,
+    }, () => {
+      console.log('SetState finished')
+      console.log('state variables after move', this.state)
+
+      axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
+        this.setState({
+          thisusr: response.data,
+        })
+        console.log("response data from put: ", response.data);
       })
-      console.log("response data from put: ", response.data);
     })
   }
 
@@ -238,9 +242,11 @@ class App extends React.Component {
   }
 
   render = () => {
-    console.log(this.state.thisusr, this.state.users);
+//    console.log(this.state.thisusr, this.state.users);
+
     const matches = this.state.thisusr
       ? this.state.users.filter(user => {
+<<<<<<< HEAD
         // console.log('were getting here');
         // console.log(this.state.thisusr);
         // console.log(this.state.users);
@@ -248,6 +254,10 @@ class App extends React.Component {
         // console.log(attributes)
         for(let x=0;x<6;x++){
           // console.log(this.state.thisusr.likes[attributes[x]], user[attributes[x]])
+=======
+        const attributes = Object.keys(this.state.thisusr.likes).slice(1)
+        for(let x=0;x<6;x++){
+>>>>>>> 8dd890e63023c641a41152d3adcb5d4db96d7cbd
           if(this.state.thisusr.likes[attributes[x]] !== user[attributes[x]]){
             return false
           }
@@ -279,6 +289,7 @@ class App extends React.Component {
             handleChange={this.handleChange.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}  //this.createuser.bind
             stateThisUsr={this.state.thisusr}
+            stateUpdateUsr={this.state.updateUsr}
             btnText="Sign Up"
             summText="Click Here to Sign Up"
           />
