@@ -150,6 +150,7 @@ class App extends React.Component {
     thisusr: null,
     currUse: '',
     updateUsr: '',
+    newUsr: '',
     users:[]
   }
 
@@ -170,17 +171,38 @@ class App extends React.Component {
 
   //create new user
   handleSubmit = (event) => {
-  event.preventDefault()
-  console.log('handling the new user submit');
-  console.log(this.state);
-  axios
-    .post('/user', this.state)
-    .then(response => {
-      this.setState({ users: response.data, thisusr: '', userid: '', name:'', age: '', height: '', gender: '', build: '', eyeColor: '', hairColor: '', image: '', likes:{}
-    }),
-      console.log(response.data);
-    })
-  }
+    event.preventDefault()
+    console.log('handling the new user submit');
+    this.setState({
+      newUsr: {
+        userid: this.state.userid,
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        gender: this.state.gender,
+        build: this.state.build,
+        eyeColor: this.state.eyeColor,
+        hairColor: this.state.hairColor,
+        image: this.state.image,
+        likes: {
+          age: this.state.likesAge,
+          height: this.state.likesHeight,
+          gender: this.state.likesGender,
+          build: this.state.likesBuild,
+          eyeColor: this.state.likesEyeColor,
+          hairColor: this.state.likesHairColor
+        }
+      }
+    }, () => {
+      console.log(this.state);
+      axios
+        .post('/user', this.state.newUsr)
+        .then(response => {
+          // console.log(response.data);
+      })
+    }
+  )}
+
 
   //GET Matches (Log In function?)
   getMatches = (event) => {
@@ -246,18 +268,8 @@ class App extends React.Component {
 
     const matches = this.state.thisusr
       ? this.state.users.filter(user => {
-<<<<<<< HEAD
-        // console.log('were getting here');
-        // console.log(this.state.thisusr);
-        // console.log(this.state.users);
-        const attributes = Object.keys(this.state.thisusr.likes).slice(1)
-        // console.log(attributes)
-        for(let x=0;x<6;x++){
-          // console.log(this.state.thisusr.likes[attributes[x]], user[attributes[x]])
-=======
         const attributes = Object.keys(this.state.thisusr.likes).slice(1)
         for(let x=0;x<6;x++){
->>>>>>> 8dd890e63023c641a41152d3adcb5d4db96d7cbd
           if(this.state.thisusr.likes[attributes[x]] !== user[attributes[x]]){
             return false
           }
