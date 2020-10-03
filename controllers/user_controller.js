@@ -27,6 +27,7 @@ user.get('/:id', (req,res) => {
 
 // CREATE ROUTE
 user.post('/', (req, res) => {
+  console.log('you are in the post route')
   User.create(req.body, (err, createdUser) => {
     User.find({}, (err, foundUsers) => {
       res.json(foundUsers)
@@ -37,8 +38,9 @@ user.post('/', (req, res) => {
 /// READY TO GO
 
 // UPDATE ROUTE
-user.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(
+user.put('/:id', async (req, res) => {
+
+  await User.findByIdAndUpdate(
     req.params.id,
     req.body,
     {new: true},
@@ -46,6 +48,7 @@ user.put('/:id', (req, res) => {
       if (err) {
         res.send(err)
       } else {
+        console.log('finding user in put route')
         User.find({}, (err, foundUser) => {
           res.json(foundUser)
         })

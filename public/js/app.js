@@ -9,13 +9,14 @@ function UserForm(props) {
     handleChange,
     handleSubmit,
     stateThisUsr,
-    btnText
+    btnText,
+    summText
   }=props
 
   return (
     <details>
-    <summary>Click Triangle to Create a New User</summary>
-      <form onSubmit={handleChange}>
+    <summary>{summText}</summary>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="userid">User ID</label>
         <br/>
         <input type="text" id="userid" onChange={handleChange} />
@@ -88,8 +89,8 @@ function UserForm(props) {
         <br/>
         <div className='signUpLikes'>
           <span>Likes:</span><br/>
-          <label htmlFor='likes.age'>Age Range</label>
-          <select id='likes.age' onChange={handleChange}>
+          <label htmlFor='likesAge'>Age Range</label>
+          <select id='likesAge' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='young'>18-25</option>
@@ -99,8 +100,8 @@ function UserForm(props) {
             <option value='mature'>49+</option>
           </select>
           <br/>
-          <label htmlFor='likes.height'>Height (in centimeters): </label>
-          <select id='likes.height'  onChange={handleChange}>
+          <label htmlFor='likesHeight'>Height (in centimeters): </label>
+          <select id='likesHeight'  onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='short'>145-160cm</option>
@@ -108,16 +109,16 @@ function UserForm(props) {
             <option value='tall'>171-190cm</option>
           </select>
           <br/>
-          <label htmlFor='likes.gender'>Gender: </label>
-          <select id='likes.gender' onChange={handleChange}>
+          <label htmlFor='likesGender'>Gender: </label>
+          <select id='likesGender' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='male'>Male</option>
             <option value='female'>Female</option>
           </select>
           <br/>
-          <label htmlFor='likes.build'>Build: </label>
-          <select id='likes.build' onChange={handleChange}>
+          <label htmlFor='likesBuild'>Build: </label>
+          <select id='likesBuild' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='slender'>Slender</option>
@@ -126,8 +127,8 @@ function UserForm(props) {
             <option value='plus'>Plus</option>
           </select>
           <br/>
-          <label htmlFor='likes.eyeColor'>Eye Color: </label>
-          <select id='likes.eyeColor' onChange={handleChange}>
+          <label htmlFor='likesEyeColor'>Eye Color: </label>
+          <select id='likesEyeColor' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
@@ -135,8 +136,8 @@ function UserForm(props) {
             <option value='green'>Green</option>
           </select>
           <br/>
-          <label htmlFor='likes.hairColor'>Hair Color: </label>
-          <select id='likes.hairColor' onChange={handleChange}>
+          <label htmlFor='likesHairColor'>Hair Color: </label>
+          <select id='likesHairColor' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
@@ -163,20 +164,23 @@ class App extends React.Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value })
+    // console.log(event.target.id);
+    // console.log(event.target.value);
   }
 
   deleteUser = event => {
-     axios.delete('/user/' + this.state.thisusr._id).then(response => {
-       this.setState({
-         thisusr: null
-       })
+   axios.delete('/user/' + this.state.thisusr._id).then(response => {
+     this.setState({
+       thisusr: null
      })
-   }
+   })
+ }
 
 
   //create new user
   handleSubmit = (event) => {
   event.preventDefault()
+  console.log(this.state);
   axios
     .post('/user', this.state)
     .then(response => {
@@ -201,13 +205,35 @@ class App extends React.Component {
 
   //update user info
   updateUser = (event) => {
-  event.preventDefault()
-  const id = event.target.id
-  axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
+    event.preventDefault()
+    console.log("state variables" , this.state);
     this.setState({
-      thisusr: response.data,
+      updateUsr: {
+        userid: this.state.userid,
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        gender: this.state.gender,
+        build: this.state.build,
+        eyeColor: this.state.eyeColor,
+        hairColor: this.state.hairColor,
+        image: this.state.image,
+        likes: {
+          age: this.state.likesAge,
+          height: this.state.likesHeight,
+          gender: this.state.likesGender,
+          build: this.state.likesBuild,
+          eyeColor: this.state.likesEyeColor,
+          hairColor: this.state.likesHairColor
+        }
+      }
     })
-  })
+    axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
+      this.setState({
+        thisusr: response.data,
+      })
+      console.log("response data from put: ", response.data);
+    })
   }
 
   componentDidMount = () => {
@@ -223,6 +249,8 @@ class App extends React.Component {
     const matches = this.state.thisusr
       ? this.state.users.filter(user => {
         console.log('were getting here');
+        console.log(this.state.thisusr);
+        console.log(this.state.users);
         const attributes = Object.keys(this.state.thisusr.likes).slice(1)
         console.log(attributes)
         for(let x=0;x<6;x++){
@@ -237,13 +265,13 @@ class App extends React.Component {
 
       const greetingTag = this.state.thisusr
         ? <div>
-            <h3>Greeting {this.state.thisusr.name} </h3>
-            <div> Update User </div>
+            <h3>Greetings {this.state.thisusr.name} </h3>
             <UserForm
               handleChange={this.handleChange.bind(this)}
               handleSubmit={this.updateUser.bind(this)}
               stateThisUsr={this.state.thisusr}
               btnText="Update"
+              summText="Click Here to Update User Profile"
             />
             <br />
             <button value={this.state.thisusr._id} onClick={this.deleteUser}>
@@ -258,6 +286,7 @@ class App extends React.Component {
             handleSubmit={this.handleSubmit.bind(this)}  //this.createuser.bind
             stateThisUsr={this.state.thisusr}
             btnText="Sign Up"
+            summText="Click Here to Sign Up"
           />
           </div>
 

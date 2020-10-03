@@ -1,0 +1,32 @@
+/* *{
+  border: 1px solid lightblue;
+} */
+
+li{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 24%;
+  margin: 3%;
+  padding: 2%;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px grey;
+}
+
+.action{
+  display: flex;
+  justify-content: center;
+}
+
+.signUp{
+  width: 48%;
+}
+
+.logIn{
+  width: 48%;
+}
+
+.hide{
+  display: none;
+}
