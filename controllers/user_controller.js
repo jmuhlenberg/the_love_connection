@@ -18,9 +18,11 @@ user.get('/', (req,res) => {
 
 // SPECIFIC USER ROUTE
 user.get('/:id', (req,res) => {
-  User.find({}, (err, foundUser) => {
+  User.findOne({
+    userid: req.params.id
+  }, (err, foundUser) => {
     res.json(foundUser)
-  }).where('userid').eq('karen')
+  })
 })
 
 // CREATE ROUTE
@@ -53,9 +55,9 @@ user.put('/:id', (req, res) => {
 
 // DELETE ROUTE
 user.delete('/:id', (req, res) => {
-  User.findByIdAndRemove(req.params.id, (err, deletedSong) => {
-    User.find({}, (err, foundSong) => {
-      res.json(foundSong)
+  User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
+    User.find({}, (err, deletedUser) => {
+      res.json(deletedUser)
     })
   })
 })
@@ -63,7 +65,9 @@ user.delete('/:id', (req, res) => {
 
 // SEED ROUTE?
 
-user.get('/seed', (req, res) => {
+user.get('/sp/seed', async (req, res) => {
+  await User.deleteMany({})
+  console.log('in user seed function')
     User.create(
       [
         {
@@ -216,12 +220,12 @@ user.get('/seed', (req, res) => {
         {
           userid: "abe721",
           name: "Abe",
-          age: "mature",
+          age: "golden",
           height: "tall",
           gender: "male",
-          build: "slender",
-          eyeColor: "blue",
-          hairColor: "grey",
+          build: "stocky",
+          eyeColor: "brown",
+          hairColor: "red",
           image: " ",
           likes:
             {
@@ -325,8 +329,8 @@ user.get('/seed', (req, res) => {
           height: "short",
           gender: "female",
           build: "plus",
-          eyeColor: "brown",
-          hairColor: "blue",
+          eyeColor: "blue",
+          hairColor: "brown",
           image: " ",
           likes:
             {
@@ -484,12 +488,10 @@ user.get('/seed', (req, res) => {
             eyeColor: "blue",
             hairColor: "blonde"
             }
-
-        },
-
+        }
       ],
         (err, data) => {
-            res.send(data);
+            res.json(data);
         }
     )
 });

@@ -7,28 +7,15 @@
 class App extends React.Component {
 
   state = {
-    userid: '',
-    name: '',
-    age: '',
-    height: '',
-    gender: '',
-    build: '',
-    eyeColor: '',
-    hairColor: '',
-    image: '',
-    likes: {},
-    users: [],
-    likesAge: '',
-    likesHeight: '',
-    likesGender: '',
-    likesBuild: '',
-    likesHairColor: '',
-    likesEyeColor: '',
-    currUse: ''
+    thisusr: null,
+    currUse: '',
+    users:[]
   }
 
   handleChange = (event) => {
+
     this.setState({ [event.target.id]: event.target.value })
+
   }
 
   //create new user
@@ -44,27 +31,14 @@ class App extends React.Component {
 
   //GET Matches (Log In function?)
   getMatches = (event) => {
+    event.preventDefault()
     console.log(this.state.currUse);
     axios.get(`/user/${this.state.currUse}`).then(
       (response) => {
         this.setState({
-          userid: response.data[0].userid,
-          name: response.data[0].name,
-          age: response.data[0].age,
-          height: response.data[0].height,
-          gender: response.data[0].gender,
-          build: response.data[0].build,
-          eyeColor: response.data[0].eyeColor,
-          hairColor: response.data[0].hairColor,
-          image: response.data[0].image,
-          likesAge: response.data[0].likes.age,
-          likesHeight: response.data[0].likes.height,
-          likesGender: response.data[0].likes.gender,
-          likesBuild: response.data[0].likes.build,
-          likesEyeColor: response.data[0].likes.eyeColor,
-          likesHairColor: response.data[0].likes.hairColor
+          thisusr: response.data
         })
-        console.log(this.state);
+        console.log(response.data);
       }
     )
   }
@@ -99,19 +73,28 @@ class App extends React.Component {
   }
 
   render = () => {
-    // const readAllUsers = {this.componentDidMount}
-    // {this.state.users.map( user => {
-    //   return(
-    //     <li key={user._id}>
-    //       <h5>{user.name}</h5>
-    //     </li>
-    // )})}
+    console.log(this.state.thisusr, this.state.users);
+    const matches = this.state.thisusr
+      ? this.state.users.filter(user => {
+        console.log('were getting here');
+        const attributes = Object.keys(this.state.thisusr.likes).slice(1)
+        console.log(attributes)
+        for(let x=0;x<6;x++){
+          console.log(this.state.thisusr.likes[attributes[x]], user[attributes[x]])
+          if(this.state.thisusr.likes[attributes[x]] !== user[attributes[x]]){
+            return false
+          }
+        }
+        return true
+      })
+      : []
 
     return(
       <div className='siteContainer'>
         <div className='signUp'>
           <h2>Sign Up</h2>
           <details>
+          <summary>Click Triangle to Create a New User</summary>
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="userid">User ID</label>
               <br/>
@@ -253,14 +236,12 @@ class App extends React.Component {
             <input type='submit'/>
           </form>
         </div>
+        <div>
+        </div>
         <div className='display-results'>
-        <button onClick={this.getMatches}>Show My Results</button>
-        <h3>Welcome {this.state.name}</h3>
           <ul>
           {
-            this.state.users.filter( user => {
-            return (user.gender === this.state.likesGender && user.age === this.state.likesAge && user.height === this.state.likesHeight && user.build === this.state.likesBuild && user.eyeColor === this.state.eyeColor && user.hairColor === this.state.hairColor)
-          }).map( user => {
+            matches.map( user => {
               return(
                 <li key={user._id}>
                   <h4>{user.name}</h4>
