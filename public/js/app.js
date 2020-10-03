@@ -17,16 +17,13 @@ function UserForm(props) {
     <details>
     <summary>{summText}</summary>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="userid">User ID</label>
-        <br/>
+        <label htmlFor="userid">User ID: </label>
         <input type="text" id="userid" onChange={handleChange} />
         <br/>
-        <label htmlFor="name">Name</label>
-        <br/>
+        <label htmlFor="name">Name: </label>
         <input type="text" id="name" onChange={handleChange} />
         <br/>
-        <label htmlFor="age">Age</label>
-        <br/>
+        <label htmlFor="age">Age: </label>
         <select id='age' onChange={handleChange}>
           <option>-----</option>
           <option value='young'>18-25</option>
@@ -36,8 +33,7 @@ function UserForm(props) {
           <option value='mature'>49+</option>
         </select>
         <br/>
-        <label htmlFor="height">Height</label>
-        <br/>
+        <label htmlFor="height">Height: </label>
         <select id='height' onChange={handleChange}>
           <option>-----</option>
           <option value='short'>145-160cm</option>
@@ -45,16 +41,14 @@ function UserForm(props) {
           <option value='tall'>171-190cm</option>
         </select>
         <br/>
-        <label htmlFor="gender">Gender</label>
-        <br/>
+        <label htmlFor="gender">Gender: </label>
         <select id='gender' onChange={handleChange}>
           <option>-----</option>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
         </select>
         <br/>
-        <label htmlFor="build">Build</label>
-        <br/>
+        <label htmlFor="build">Build: </label>
         <select id='build' onChange={handleChange}>
           <option>-----</option>
           <option value='slender'>Slender</option>
@@ -63,8 +57,7 @@ function UserForm(props) {
           <option value='plus'>Plus</option>
         </select>
         <br/>
-        <label htmlFor="eyeColor">Eye Color</label>
-        <br/>
+        <label htmlFor="eyeColor">Eye Color: </label>
         <select id='eyeColor' onChange={handleChange}>
           <option>-----</option>
           <option value='brown'>Brown</option>
@@ -72,8 +65,7 @@ function UserForm(props) {
           <option value='green'>Green</option>
         </select>
         <br/>
-        <label htmlFor="hairColor">Hair Color</label>
-        <br/>
+        <label htmlFor="hairColor">Hair Color: </label>
         <select id='hairColor' onChange={handleChange}>
           <option>-----</option>
           <option value='brown'>Brown</option>
@@ -82,14 +74,13 @@ function UserForm(props) {
           <option value='grey'>Grey</option>
         </select>
         <br/>
-        <label htmlFor="image">Profile Image</label>
-        <br/>
+        <label htmlFor="image">Profile Image: </label>
         <input type="text" id="image" onChange={handleChange} />
         <br/>
         <br/>
         <div className='signUpLikes'>
           <span>Likes:</span><br/>
-          <label htmlFor='likesAge'>Age Range</label>
+          <label htmlFor='likesAge'>Age Range: </label>
           <select id='likesAge' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
@@ -180,11 +171,13 @@ class App extends React.Component {
   //create new user
   handleSubmit = (event) => {
   event.preventDefault()
+  console.log('handling the new user submit');
   console.log(this.state);
   axios
     .post('/user', this.state)
     .then(response => {
-      this.setState({ users: response.data, userid: '', name:'', age: '', height: '', gender: '', build: '', eyeColor: '', hairColor: '', image: '', likes:[]}),
+      this.setState({ users: response.data, thisusr: '', userid: '', name:'', age: '', height: '', gender: '', build: '', eyeColor: '', hairColor: '', image: '', likes:{}
+    }),
       console.log(response.data);
     })
   }
