@@ -17,16 +17,13 @@ function UserForm(props) {
     <details>
     <summary>{summText}</summary>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="userid">User ID</label>
-        <br/>
+        <label htmlFor="userid">User ID: </label>
         <input type="text" id="userid" onChange={handleChange} />
         <br/>
-        <label htmlFor="name">Name</label>
-        <br/>
+        <label htmlFor="name">Name: </label>
         <input type="text" id="name" onChange={handleChange} />
         <br/>
-        <label htmlFor="age">Age</label>
-        <br/>
+        <label htmlFor="age">Age: </label>
         <select id='age' onChange={handleChange}>
           <option>-----</option>
           <option value='18-25'>18-25</option>
@@ -36,8 +33,7 @@ function UserForm(props) {
           <option value='49+'>49+</option>
         </select>
         <br/>
-        <label htmlFor="height">Height</label>
-        <br/>
+        <label htmlFor="height">Height: </label>
         <select id='height' onChange={handleChange}>
           <option>-----</option>
           <option value='short'>145-160cm</option>
@@ -45,16 +41,14 @@ function UserForm(props) {
           <option value='tall'>171-190cm</option>
         </select>
         <br/>
-        <label htmlFor="gender">Gender</label>
-        <br/>
+        <label htmlFor="gender">Gender: </label>
         <select id='gender' onChange={handleChange}>
           <option>-----</option>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
         </select>
         <br/>
-        <label htmlFor="build">Build</label>
-        <br/>
+        <label htmlFor="build">Build: </label>
         <select id='build' onChange={handleChange}>
           <option>-----</option>
           <option value='slender'>Slender</option>
@@ -63,8 +57,7 @@ function UserForm(props) {
           <option value='plus'>Plus</option>
         </select>
         <br/>
-        <label htmlFor="eyeColor">Eye Color</label>
-        <br/>
+        <label htmlFor="eyeColor">Eye Color: </label>
         <select id='eyeColor' onChange={handleChange}>
           <option>-----</option>
           <option value='brown'>Brown</option>
@@ -72,8 +65,7 @@ function UserForm(props) {
           <option value='green'>Green</option>
         </select>
         <br/>
-        <label htmlFor="hairColor">Hair Color</label>
-        <br/>
+        <label htmlFor="hairColor">Hair Color: </label>
         <select id='hairColor' onChange={handleChange}>
           <option>-----</option>
           <option value='brown'>Brown</option>
@@ -82,14 +74,13 @@ function UserForm(props) {
           <option value='grey'>Grey</option>
         </select>
         <br/>
-        <label htmlFor="image">Profile Image</label>
-        <br/>
+        <label htmlFor="image">Profile Image: </label>
         <input type="text" id="image" onChange={handleChange} />
         <br/>
         <br/>
         <div className='signUpLikes'>
           <span>Likes:</span><br/>
-          <label htmlFor='likesAge'>Age Range</label>
+          <label htmlFor='likesAge'>Age Range: </label>
           <select id='likesAge' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
@@ -159,6 +150,7 @@ class App extends React.Component {
     thisusr: null,
     currUse: '',
     updateUsr: '',
+    newUsr: '',
     users:[]
   }
 
@@ -179,15 +171,38 @@ class App extends React.Component {
 
   //create new user
   handleSubmit = (event) => {
-  event.preventDefault()
-  console.log(this.state);
-  axios
-    .post('/user', this.state)
-    .then(response => {
-      this.setState({ users: response.data, userid: '', name:'', age: '', height: '', gender: '', build: '', eyeColor: '', hairColor: '', image: '', likes:[]}),
-      console.log(response.data);
-    })
-  }
+    event.preventDefault()
+    console.log('handling the new user submit');
+    this.setState({
+      newUsr: {
+        userid: this.state.userid,
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        gender: this.state.gender,
+        build: this.state.build,
+        eyeColor: this.state.eyeColor,
+        hairColor: this.state.hairColor,
+        image: this.state.image,
+        likes: {
+          age: this.state.likesAge,
+          height: this.state.likesHeight,
+          gender: this.state.likesGender,
+          build: this.state.likesBuild,
+          eyeColor: this.state.likesEyeColor,
+          hairColor: this.state.likesHairColor
+        }
+      }
+    }, () => {
+      console.log(this.state);
+      axios
+        .post('/user', this.state.newUsr)
+        .then(response => {
+          // console.log(response.data);
+      })
+    }
+  )}
+
 
   //GET Matches (Log In function?)
   getMatches = (event) => {
@@ -203,7 +218,7 @@ class App extends React.Component {
     )
   }
 
-  //update user info
+  // UPDATE USER INFORMATION
   updateUser = (event) => {
     event.preventDefault()
     console.log("state variables" , this.state);
@@ -227,12 +242,16 @@ class App extends React.Component {
           hairColor: this.state.likesHairColor
         }
       }
-    })
-    axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
-      this.setState({
-        thisusr: response.data,
+    }, () => {
+      console.log('SetState finished')
+      console.log('state variables after move', this.state)
+
+      axios.put('/user/' + this.state.thisusr._id, this.state.updateUsr).then(response => {
+        this.setState({
+          thisusr: response.data,
+        })
       })
-      console.log("response data from put: ", response.data);
+              window.location.reload(false)
     })
   }
 
@@ -245,16 +264,12 @@ class App extends React.Component {
   }
 
   render = () => {
-    console.log(this.state.thisusr, this.state.users);
+//    console.log(this.state.thisusr, this.state.users);
+
     const matches = this.state.thisusr
       ? this.state.users.filter(user => {
-        console.log('were getting here');
-        console.log(this.state.thisusr);
-        console.log(this.state.users);
         const attributes = Object.keys(this.state.thisusr.likes).slice(1)
-        console.log(attributes)
         for(let x=0;x<6;x++){
-          console.log(this.state.thisusr.likes[attributes[x]], user[attributes[x]])
           if(this.state.thisusr.likes[attributes[x]] !== user[attributes[x]]){
             return false
           }
@@ -266,17 +281,74 @@ class App extends React.Component {
       const greetingTag = this.state.thisusr
         ? <div>
             <h3>Greetings {this.state.thisusr.name} </h3>
+            <div>Profile
+              <div>
+                <div>
+                  <div>
+                  User Id: {this.state.thisusr.userid}
+                  </div>
+                <div>
+                Name: {this.state.thisusr.name}
+                </div>
+                <div>
+                Age: {this.state.thisusr.age}
+                </div>
+                <div>
+                Height: {this.state.thisusr.height}
+                </div>
+                <div>
+                Gender: {this.state.thisusr.gender}
+                </div>
+                <div>
+                Build: {this.state.thisusr.build}
+                </div>
+                <div>
+                Eye Color: {this.state.thisusr.eyeColor}
+                </div>
+                <div>
+                Hair Color: {this.state.thisusr.hairColor}
+                </div>
+                <div>
+                Image Tag: {this.state.thisusr.image}
+                </div>
+                <div>
+                Likes:
+                </div>
+                <div>
+                Gender: {this.state.thisusr.likes.gender}
+                </div>
+                <div>
+                Build: {this.state.thisusr.likes.build}
+                </div>
+                <div>
+                Hair Color: {this.state.thisusr.likes.hairColor}
+                </div>
+                <div>
+                Eyd Color: {this.state.thisusr.likes.eyeColor}
+                </div>
+                <div>
+                Age: {this.state.thisusr.likes.age}
+                </div>
+                <div>
+                Height: {this.state.thisusr.likes.height}
+                </div>
+              </div>
+            </div>
+            </div>
             <UserForm
               handleChange={this.handleChange.bind(this)}
               handleSubmit={this.updateUser.bind(this)}
               stateThisUsr={this.state.thisusr}
+              stateUpdateUsr={this.state.updateUsr}
               btnText="Update"
               summText="Click Here to Update User Profile"
             />
             <br />
+            <br />
             <button value={this.state.thisusr._id} onClick={this.deleteUser}>
               DELETE
             </button>
+            <br />
           </div>
 
         : <div>
@@ -285,6 +357,7 @@ class App extends React.Component {
             handleChange={this.handleChange.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}  //this.createuser.bind
             stateThisUsr={this.state.thisusr}
+            stateUpdateUsr={this.state.updateUsr}
             btnText="Sign Up"
             summText="Click Here to Sign Up"
           />
@@ -311,10 +384,12 @@ class App extends React.Component {
           {
             matches.map( user => {
               return(
-                <li key={user._id}>
-                  <h4>{user.name}</h4>
-                  <button value={user._id}>Check Match</button>
-                </li>)
+                <details>
+                  <summary>Click to view {user.name}</summary>
+                  <div>Gender: {user.gender}   Height: {user.height}</div>
+                  <div>Age: {user.age}   Eyes: {user.eyeColor}</div>
+                  <div>Build: {user.build}   Hair: {user.hairColor}</div>
+                </details>)
             })
           }
           </ul>

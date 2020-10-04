@@ -49,13 +49,16 @@ user.put('/:id', async (req, res) => {
       if (err) {
         res.send(err)
       } else {
-        console.log('finding user in put route')
-        User.find({}, (err, foundUser) => {
+        console.log('Updating user ' + req.params.id + ' in put route')
+        User.findOne({
+          userid:req.params.id
+        }, (err, foundUser) => {
           res.json(foundUser)
         })
       }
     })
 })
+
 
 // DELETE ROUTE
 user.delete('/:id', (req, res) => {
@@ -98,11 +101,11 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "don721",
           name: "Donny",
-          age: "young",
-          height: "tall",
+          age: "sunset",
+          height: "medium",
           gender: "male",
-          build: "slender",
-          eyeColor: "brown",
+          build: "stocky",
+          eyeColor: "blue",
           hairColor: "brown",
           image: " ",
           likes:
