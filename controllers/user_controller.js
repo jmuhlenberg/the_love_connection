@@ -1,4 +1,3 @@
-
 const express = require('express')
 const user = express.Router()
 const User = require('../models/user.js')
@@ -16,8 +15,22 @@ user.get('/', (req,res) => {
   })
 })
 
+
+
+// SPECIFIC USER ROUTE
+user.get('/:id', (req,res) => {
+  User.findOne({
+    userid: req.params.id
+  }, (err, foundUser) => {
+    res.json(foundUser)
+  })
+})
+
+
+
 // CREATE ROUTE
 user.post('/', (req, res) => {
+  console.log('you are in the post route')
   User.create(req.body, (err, createdUser) => {
     User.find({}, (err, foundUsers) => {
       res.json(foundUsers)
@@ -25,9 +38,10 @@ user.post('/', (req, res) => {
   })
 })
 
+
 // UPDATE ROUTE
-user.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(
+user.put('/:id', async (req, res) => {
+  await User.findByIdAndUpdate(
     req.params.id,
     req.body,
     {new: true},
@@ -35,18 +49,22 @@ user.put('/:id', (req, res) => {
       if (err) {
         res.send(err)
       } else {
-        User.find({}, (err, foundUser) => {
+        console.log('Updating user ' + req.params.id + ' in put route')
+        User.findOne({
+          userid:req.params.id
+        }, (err, foundUser) => {
           res.json(foundUser)
         })
       }
     })
 })
 
+
 // DELETE ROUTE
 user.delete('/:id', (req, res) => {
-  User.findByIdAndRemove(req.params.id, (err, deletedSong) => {
-    User.find({}, (err, foundSong) => {
-      res.json(foundSong)
+  User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
+    User.find({}, (err, deletedUser) => {
+      res.json(deletedUser)
     })
   })
 })
@@ -54,393 +72,433 @@ user.delete('/:id', (req, res) => {
 
 // SEED ROUTE?
 
-user.get('/seed', (req, res) => {
+user.get('/sp/seed', async (req, res) => {
+  await User.deleteMany({})
+  console.log('in user seed function')
     User.create(
-        [{
-          userid: "",
-          name: "Jim",
-          age: "55",
-          height: "69",
-          gender: "m",
+      [
+        {
+          userid: "marco721",
+          name: "Marco",
+          age: "adults",
+          height: "medium",
+          gender: "male",
           build: "athletic",
           eyeColor: "blue",
-          hairColor: "gray",
+          hairColor: "grey",
           image: " ",
-          likes: [{
-            age: "22",
-            height: "65",
-            gender: "f",
-            build: "average",
+          likes:
+            {
+            age: "young",
+            height: "tall",
+            gender: "female",
+            build: "slender",
             eyeColor: "blue",
             hairColor: "brown"
+            }
 
-          }],
-          [{
-            userid: "",
-            name: "John",
-            age: "27",
-            height: "72",
-            gender: "m",
+        },
+        {
+          userid: "don721",
+          name: "Donny",
+          age: "sunset",
+          height: "medium",
+          gender: "male",
+          build: "stocky",
+          eyeColor: "blue",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "female",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "blonde"
+            }
+
+        },
+        {
+          userid: "gus721",
+          name: "Giuseppe",
+          age: "adults",
+          height: "short",
+          gender: "male",
+          build: "plus",
+          eyeColor: "brown",
+          hairColor: "blue",
+          image: " ",
+          likes:
+            {
+            age: "golden",
+            height: "tall",
+            gender: "female",
+            build: "stocky",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "ant721",
+          name: "Anthony",
+          age: "sunset",
+          height: "medium",
+          gender: "male",
+          build: "stocky",
+          eyeColor: "blue",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "adults",
+            height: "medium",
+            gender: "female",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "dom721",
+          name: "Dominic",
+          age: "sunset",
+          height: "short",
+          gender: "male",
+          build: "slender",
+          eyeColor: "blue",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "sunset",
+            height: "short",
+            gender: "female",
+            build: "slender",
+            eyeColor: "blue",
+            hairColor: "grey"
+            }
+
+        },
+        {
+          userid: "vito721",
+          name: "Vito",
+          age: "adults",
+          height: "medium",
+          gender: "male",
+          build: "plus",
+          eyeColor: "brown",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "tall",
+            gender: "female",
+            build: "plus",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "lou721",
+          name: "Lou",
+          age: "adults",
+          height: "tall",
+          gender: "male",
+          build: "plus",
+          eyeColor: "brown",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "short",
+            gender: "female",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "brown"
+            }
+
+        },
+        {
+          userid: "abe721",
+          name: "Abe",
+          age: "golden",
+          height: "tall",
+          gender: "male",
+          build: "stocky",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "female",
+            build: "stocky",
+            eyeColor: "brown",
+            hairColor: "blonde"
+            }
+
+        },
+        {
+          userid: "sonny721",
+          name: "Sonny",
+          age: "adults",
+          height: "tall",
+          gender: "male",
+          build: "athletic",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "female",
+            build: "slender",
+            eyeColor: "blue",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "fred721",
+          name: "Fredo",
+          age: "adults",
+          height: "medium",
+          gender: "male",
+          build: "slender",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: " ",
+          likes:
+            {
+            age: "sunset",
+            height: "medium",
+            gender: "female",
             build: "athletic",
             eyeColor: "blue",
-            hairColor: "black",
-            image: " ",
-            likes: [{
-              age: "25",
-              height: "63",
-              gender: "f",
-              build: "athletic",
-              eyeColor: "brown",
-              hairColor: "brown"
-
-            }],
-            [{
-              userid: "",
-              name: "Daniel",
-              age: "34",
-              height: "68",
-              gender: "m",
-              build: "athletic",
-              eyeColor: "brown",
-              hairColor: "black",
-              image: " ",
-              likes: [{
-                age: "30",
-                height: "62",
-                gender: "f",
-                build: "athletic",
-                eyeColor: "brown",
-                hairColor: "brown"
-
-              }],
-              [{
-                userid: "",
-                name: "Kellen",
-                age: "38",
-                height: "72",
-                gender: "m",
-                build: "athletic",
-                eyeColor: "blue",
-                hairColor: "blonde",
-                image: " ",
-                likes: [{
-                  age: "29",
-                  height: "65",
-                  gender: "f",
-                  build: "average",
-                  eyeColor: "brown",
-                  hairColor: "brown"
-
-                }],
-                [{
-                  userid: "",
-                  name: "Alby",
-                  age: "27",
-                  height: "73",
-                  gender: "m",
-                  build: "athletic",
-                  eyeColor: "brown",
-                  hairColor: "black",
-                  image: " ",
-                  likes: [{
-                    age: "40",
-                    height: "66",
-                    gender: "f",
-                    build: "heavy",
-                    eyeColor: "brown",
-                    hairColor: "brown"
-
-                  }],
-                  [{
-                    userid: "",
-                    name: "Matt",
-                    age: "40",
-                    height: "68",
-                    gender: "m",
-                    build: "average",
-                    eyeColor: "blue",
-                    hairColor: "black",
-                    image: " ",
-                    likes: [{
-                      age: "21",
-                      height: "65",
-                      gender: "f",
-                      build: "athletic",
-                      eyeColor: "blue",
-                      hairColor: "blonde"
-
-                    }],
-                    [{
-                      userid: "",
-                      name: "Tim",
-                      age: "48",
-                      height: "76",
-                      gender: "m",
-                      build: "heavy",
-                      eyeColor: "brown",
-                      hairColor: "black",
-                      image: " ",
-                      likes: [{
-                        age: "25",
-                        height: "63",
-                        gender: "f",
-                        build: "thin",
-                        eyeColor: "green",
-                        hairColor: "brown"
-
-                      }],
-                      [{
-                        userid: "",
-                        name: "William",
-                        age: "68",
-                        height: "61",
-                        gender: "m",
-                        build: "heavy",
-                        eyeColor: "hazel",
-                        hairColor: "black",
-                        image: " ",
-                        likes: [{
-                          age: "18",
-                          height: "60",
-                          gender: "f",
-                          build: "thin",
-                          eyeColor: "brown",
-                          hairColor: "brown"
-
-                        }],
-                        [{
-                          userid: "",
-                          name: "Paul",
-                          age: "22",
-                          height: "64",
-                          gender: "m",
-                          build: "thin",
-                          eyeColor: "brown",
-                          hairColor: "blonde",
-                          image: " ",
-                          likes: [{
-                            age: "50",
-                            height: "63",
-                            gender: "f",
-                            build: "athletic",
-                            eyeColor: "green",
-                            hairColor: "brown"
-
-                          }],
-                          [{
-                            userid: "",
-                            name: "Ryan",
-                            age: "26",
-                            height: "77",
-                            gender: "m",
-                            build: "athletic",
-                            eyeColor: "brown",
-                            hairColor: "black",
-                            image: " ",
-                            likes: [{
-                              age: "25",
-                              height: "69",
-                              gender: "f",
-                              build: "fit",
-                              eyeColor: "blue",
-                              hairColor: "black"
-
-                            }],
-                            [{
-                              userid: "",
-                              name: "Danielle",
-                              age: "32",
-                              height: "65",
-                              gender: "f",
-                              build: "athletic",
-                              eyeColor: "brown",
-                              hairColor: "black",
-                              image: " ",
-                              likes: [{
-                                age: "21",
-                                height: "73",
-                                gender: "m",
-                                build: "athletic",
-                                eyeColor: "blue",
-                                hairColor: "black"
-
-                              }],
-                              [{
-                                userid: "",
-                                name: "Mary Jane",
-                                age: "32",
-                                height: "65",
-                                gender: "f",
-                                build: "slim",
-                                eyeColor: "brown",
-                                hairColor: "brown",
-                                image: " ",
-                                likes: [{
-                                  age: "31",
-                                  height: "75",
-                                  gender: "m",
-                                  build: "husky",
-                                  eyeColor: "brown",
-                                  hairColor: "black"
-
-                                }],
-                                [{
-                                  userid: "",
-                                  name: "Daisey",
-                                  age: "23",
-                                  height: "65",
-                                  gender: "f",
-                                  build: "thin",
-                                  eyeColor: "blue",
-                                  hairColor: "black",
-                                  image: " ",
-                                  likes: [{
-                                    age: "55",
-                                    height: "69",
-                                    gender: "m",
-                                    build: "athletic",
-                                    eyeColor: "blue",
-                                    hairColor: "gray"
-
-                                  }],
-                                  [{
-                                    userid: "",
-                                    name: "Tina",
-                                    age: "45",
-                                    height: "63",
-                                    gender: "f",
-                                    build: "heavy",
-                                    eyeColor: "brown",
-                                    hairColor: "black",
-                                    image: " ",
-                                    likes: [{
-                                      age: "35",
-                                      height: "71",
-                                      gender: "m",
-                                      build: "athletic",
-                                      eyeColor: "blue",
-                                      hairColor: "blonde"
-
-                                    }],
-                                    [{
-                                      userid: "",
-                                      name: "Sarah",
-                                      age: "23",
-                                      height: "60",
-                                      gender: "f",
-                                      build: "average",
-                                      eyeColor: "green",
-                                      hairColor: "brown",
-                                      image: " ",
-                                      likes: [{
-                                        age: "69",
-                                        height: "73",
-                                        gender: "m",
-                                        build: "average",
-                                        eyeColor: "blue",
-                                        hairColor: "white"
-
-                                      }],
-                                      [{
-                                        userid: "",
-                                        name: "Riley",
-                                        age: "19",
-                                        height: "59",
-                                        gender: "f",
-                                        build: "thin",
-                                        eyeColor: "blonde",
-                                        hairColor: "black",
-                                        image: " ",
-                                        likes: [{
-                                          age: "21",
-                                          height: "72",
-                                          gender: "m",
-                                          build: "athletic",
-                                          eyeColor: "blue",
-                                          hairColor: "black"
-
-                                        }],
-                                        [{
-                                          userid: "",
-                                          name: "Dipsy",
-                                          age: "51",
-                                          height: "65",
-                                          gender: "f",
-                                          build: "heavy",
-                                          eyeColor: "brown",
-                                          hairColor: "brown",
-                                          image: " ",
-                                          likes: [{
-                                            age: "25",
-                                            height: "75",
-                                            gender: "m",
-                                            build: "average",
-                                            eyeColor: "brown",
-                                            hairColor: "black"
-
-                                          }],
-                                          [{
-                                            userid: "",
-                                            name: "Prissy",
-                                            age: "29",
-                                            height: "69",
-                                            gender: "f",
-                                            build: "thin",
-                                            eyeColor: "brown",
-                                            hairColor: "black",
-                                            image: " ",
-                                            likes: [{
-                                              age: "31",
-                                              height: "77",
-                                              gender: "m",
-                                              build: "heavy",
-                                              eyeColor: "green",
-                                              hairColor: "black"
-
-                                            }],
-                                            [{
-                                              userid: "",
-                                              name: "Faye",
-                                              age: "48",
-                                              height: "64",
-                                              gender: "f",
-                                              build: "curvy",
-                                              eyeColor: "brown",
-                                              hairColor: "brown",
-                                              image: " ",
-                                              likes: [{
-                                                age: "55",
-                                                height: "73",
-                                                gender: "m",
-                                                build: "average",
-                                                eyeColor: "brown",
-                                                hairColor: "black"
-
-                                              }],
-                                              [{
-                                                userid: "",
-                                                name: "Violet",
-                                                age: "36",
-                                                height: "67",
-                                                gender: "f",
-                                                build: "athletic",
-                                                eyeColor: "blue",
-                                                hairColor: "brown",
-                                                image: " ",
-                                                likes: [{
-                                                  age: "29",
-                                                  height: "78",
-                                                  gender: "m",
-                                                  build: "thin",
-                                                  eyeColor: "brown",
-                                                  hairColor: "black"
-
-                                                }],
-
+            hairColor: "blonde"
             }
-        ],
+
+        },
+        {
+          userid: "gina722",
+          name: "Gina",
+          age: "adults",
+          height: "medium",
+          gender: "female",
+          build: "athletic",
+          eyeColor: "blue",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "tall",
+            gender: "male",
+            build: "slender",
+            eyeColor: "blue",
+            hairColor: "brown"
+            }
+
+        },
+        {
+          userid: "donna722",
+          name: "Donna",
+          age: "young",
+          height: "tall",
+          gender: "female",
+          build: "slender",
+          eyeColor: "brown",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "male",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "blonde"
+            }
+
+        },
+        {
+          userid: "maria722",
+          name: "maria",
+          age: "adults",
+          height: "short",
+          gender: "female",
+          build: "plus",
+          eyeColor: "blue",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "golden",
+            height: "tall",
+            gender: "male",
+            build: "stocky",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "sara722",
+          name: "sara",
+          age: "sunset",
+          height: "medium",
+          gender: "female",
+          build: "stocky",
+          eyeColor: "blue",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "adults",
+            height: "medium",
+            gender: "male",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "anna722",
+          name: "anna",
+          age: "sunset",
+          height: "short",
+          gender: "female",
+          build: "slender",
+          eyeColor: "blue",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "sunset",
+            height: "short",
+            gender: "male",
+            build: "slender",
+            eyeColor: "blue",
+            hairColor: "grey"
+            }
+
+        },
+        {
+          userid: "angela722",
+          name: "angela",
+          age: "adults",
+          height: "medium",
+          gender: "female",
+          build: "plus",
+          eyeColor: "brown",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "tall",
+            gender: "male",
+            build: "plus",
+            eyeColor: "brown",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "stella721",
+          name: "stella",
+          age: "adults",
+          height: "tall",
+          gender: "female",
+          build: "plus",
+          eyeColor: "brown",
+          hairColor: "brown",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "short",
+            gender: "male",
+            build: "slender",
+            eyeColor: "brown",
+            hairColor: "brown"
+            }
+
+        },
+        {
+          userid: "fran722",
+          name: "francesca",
+          age: "mature",
+          height: "tall",
+          gender: "female",
+          build: "slender",
+          eyeColor: "blue",
+          hairColor: "grey",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "male",
+            build: "stocky",
+            eyeColor: "brown",
+            hairColor: "blonde"
+            }
+
+        },
+        {
+          userid: "samantha722",
+          name: "Samantha",
+          age: "adults",
+          height: "tall",
+          gender: "female",
+          build: "athletic",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: " ",
+          likes:
+            {
+            age: "young",
+            height: "medium",
+            gender: "male",
+            build: "slender",
+            eyeColor: "blue",
+            hairColor: "red"
+            }
+
+        },
+        {
+          userid: "fredrica722",
+          name: "Fredrica",
+          age: "adults",
+          height: "medium",
+          gender: "female",
+          build: "slender",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: " ",
+          likes:
+            {
+            age: "sunset",
+            height: "medium",
+            gender: "male",
+            build: "athletic",
+            eyeColor: "blue",
+            hairColor: "blonde"
+            }
+        }
+      ],
         (err, data) => {
-            res.send(data);
+            res.json(data);
         }
     )
 });
