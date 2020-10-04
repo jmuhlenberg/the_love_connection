@@ -29,11 +29,11 @@ function UserForm(props) {
         <br/>
         <select id='age' onChange={handleChange}>
           <option>-----</option>
-          <option value='young'>18-25</option>
-          <option value='golden'>26-35</option>
-          <option value='sunset'>36-40</option>
-          <option value='adults'>41-48</option>
-          <option value='mature'>49+</option>
+          <option value='18-25'>18-25</option>
+          <option value='26-35'>26-35</option>
+          <option value='36-40'>36-40</option>
+          <option value='41-48'>41-48</option>
+          <option value='49+'>49+</option>
         </select>
         <br/>
         <label htmlFor="height">Height</label>
@@ -93,11 +93,11 @@ function UserForm(props) {
           <select id='likesAge' onChange={handleChange}>
             <option>-----</option>
             <option value='none'>No Preference</option>
-            <option value='young'>18-25</option>
-            <option value='golden'>26-35</option>
-            <option value='sunset'>36-40</option>
-            <option value='adults'>41-48</option>
-            <option value='mature'>49+</option>
+            <option value='18-25'>18-25</option>
+            <option value='26-35'>26-35</option>
+            <option value='36-40'>36-40</option>
+            <option value='41-48'>41-48</option>
+            <option value='49+'>49+</option>
           </select>
           <br/>
           <label htmlFor='likesHeight'>Height (in centimeters): </label>
