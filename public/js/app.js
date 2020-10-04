@@ -1,9 +1,5 @@
 // console.log('connected to app.js');
 
-// we may want to limit the user's input - make selects for hairColor, eyeColor, build, gender, height, age.
-
-//would like to compartmentalize the app at somepoint - i.e. a class for Sign Up, a class for Log In, etc.
-
 function UserForm(props) {
   const {
     handleChange,
@@ -23,9 +19,11 @@ function UserForm(props) {
         <label htmlFor="name">Name: </label>
         <input type="text" id="name" onChange={handleChange} />
         <br/>
+        <label htmlFor="image">Profile Image: </label>
+        <input type="text" id="image" onChange={handleChange} />
+        <br/>
         <label htmlFor="age">Age: </label>
-        <select id='age' onChange={handleChange}>
-          <option>-----</option>
+        <select id='age' sonChange={handleChange}>
           <option value='18-25'>18-25</option>
           <option value='26-35'>26-35</option>
           <option value='36-40'>36-40</option>
@@ -35,7 +33,6 @@ function UserForm(props) {
         <br/>
         <label htmlFor="height">Height: </label>
         <select id='height' onChange={handleChange}>
-          <option>-----</option>
           <option value='short'>145-160cm</option>
           <option value='medium'>161-171cm</option>
           <option value='tall'>171-190cm</option>
@@ -43,14 +40,12 @@ function UserForm(props) {
         <br/>
         <label htmlFor="gender">Gender: </label>
         <select id='gender' onChange={handleChange}>
-          <option>-----</option>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
         </select>
         <br/>
         <label htmlFor="build">Build: </label>
         <select id='build' onChange={handleChange}>
-          <option>-----</option>
           <option value='slender'>Slender</option>
           <option value='athletic'>Athletic</option>
           <option value='stocky'>Stocky</option>
@@ -59,7 +54,6 @@ function UserForm(props) {
         <br/>
         <label htmlFor="eyeColor">Eye Color: </label>
         <select id='eyeColor' onChange={handleChange}>
-          <option>-----</option>
           <option value='brown'>Brown</option>
           <option value='blue'>Blue</option>
           <option value='green'>Green</option>
@@ -67,22 +61,17 @@ function UserForm(props) {
         <br/>
         <label htmlFor="hairColor">Hair Color: </label>
         <select id='hairColor' onChange={handleChange}>
-          <option>-----</option>
           <option value='brown'>Brown</option>
           <option value='blonde'>Blonde</option>
           <option value='red'>Red</option>
           <option value='grey'>Grey</option>
         </select>
         <br/>
-        <label htmlFor="image">Profile Image: </label>
-        <input type="text" id="image" onChange={handleChange} />
-        <br/>
         <br/>
         <div className='signUpLikes'>
           <span>Likes:</span><br/>
           <label htmlFor='likesAge'>Age Range: </label>
           <select id='likesAge' onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='18-25'>18-25</option>
             <option value='26-35'>26-35</option>
@@ -93,7 +82,6 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesHeight'>Height (in centimeters): </label>
           <select id='likesHeight'  onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='short'>145-160cm</option>
             <option value='medium'>161-171cm</option>
@@ -102,7 +90,6 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesGender'>Gender: </label>
           <select id='likesGender' onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='male'>Male</option>
             <option value='female'>Female</option>
@@ -110,7 +97,6 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesBuild'>Build: </label>
           <select id='likesBuild' onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='slender'>Slender</option>
             <option value='athletic'>Athletic</option>
@@ -120,7 +106,6 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesEyeColor'>Eye Color: </label>
           <select id='likesEyeColor' onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
             <option value='blue'>Blue</option>
@@ -129,7 +114,6 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesHairColor'>Hair Color: </label>
           <select id='likesHairColor' onChange={handleChange}>
-            <option>-----</option>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
             <option value='blonde'>Blonde</option>
