@@ -251,7 +251,14 @@ class App extends React.Component {
           thisusr: response.data,
         })
       })
-              window.location.reload(false)
+      axios.get(`/user/${this.state.thisusr.userid}`).then(
+        (response) => {
+          this.setState({
+            thisusr: response.data
+          })
+          console.log(response.data);
+        }
+      )
     })
   }
 
