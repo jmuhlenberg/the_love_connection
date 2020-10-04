@@ -24,3 +24,7 @@ General Assembly SEIR Unit 03 Group Project
 
 
 ##Areas of Improvement
+
+Rating the matches against the logged in user's likes.
+
+Implementing a messaging feature using Socket.IO
