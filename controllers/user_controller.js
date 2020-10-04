@@ -101,11 +101,11 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "don721",
           name: "Donny",
-          age: "young",
-          height: "tall",
+          age: "sunset",
+          height: "medium",
           gender: "male",
-          build: "slender",
-          eyeColor: "brown",
+          build: "stocky",
+          eyeColor: "blue",
           hairColor: "brown",
           image: " ",
           likes:

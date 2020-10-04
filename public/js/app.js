@@ -218,7 +218,7 @@ class App extends React.Component {
     )
   }
 
-  //update user info
+  // UPDATE USER INFORMATION
   updateUser = (event) => {
     event.preventDefault()
     console.log("state variables" , this.state);
@@ -250,8 +250,8 @@ class App extends React.Component {
         this.setState({
           thisusr: response.data,
         })
-        console.log("response data from put: ", response.data);
       })
+              window.location.reload(false)
     })
   }
 
@@ -281,6 +281,60 @@ class App extends React.Component {
       const greetingTag = this.state.thisusr
         ? <div>
             <h3>Greetings {this.state.thisusr.name} </h3>
+            <div>Profile
+              <div>
+                <div>
+                  <div>
+                  User Id: {this.state.thisusr.userid}
+                  </div>
+                <div>
+                Name: {this.state.thisusr.name}
+                </div>
+                <div>
+                Age: {this.state.thisusr.age}
+                </div>
+                <div>
+                Height: {this.state.thisusr.height}
+                </div>
+                <div>
+                Gender: {this.state.thisusr.gender}
+                </div>
+                <div>
+                Build: {this.state.thisusr.build}
+                </div>
+                <div>
+                Eye Color: {this.state.thisusr.eyeColor}
+                </div>
+                <div>
+                Hair Color: {this.state.thisusr.hairColor}
+                </div>
+                <div>
+                Image Tag: {this.state.thisusr.image}
+                </div>
+                <div>
+                Likes:
+                </div>
+                <div>
+                Gender: {this.state.thisusr.likes.gender}
+                </div>
+                <div>
+                Build: {this.state.thisusr.likes.build}
+                </div>
+                <div>
+                Hair Color: {this.state.thisusr.likes.hairColor}
+                </div>
+                <div>
+                Eyd Color: {this.state.thisusr.likes.eyeColor}
+                </div>
+                <div>
+                Age: {this.state.thisusr.likes.age}
+                </div>
+                <div>
+                Height: {this.state.thisusr.likes.height}
+                </div>
+              </div>
+            </div>
+            </div>
             <UserForm
               handleChange={this.handleChange.bind(this)}
               handleSubmit={this.updateUser.bind(this)}
@@ -290,9 +344,11 @@ class App extends React.Component {
               summText="Click Here to Update User Profile"
             />
             <br />
+            <br />
             <button value={this.state.thisusr._id} onClick={this.deleteUser}>
               DELETE
             </button>
+            <br />
           </div>
 
         : <div>
@@ -328,10 +384,12 @@ class App extends React.Component {
           {
             matches.map( user => {
               return(
-                <li key={user._id}>
-                  <h4>{user.name}</h4>
-                  <button value={user._id}>Check Match</button>
-                </li>)
+                <details>
+                  <summary>Click to view {user.name}</summary>
+                  <div>Gender: {user.gender}   Height: {user.height}</div>
+                  <div>Age: {user.age}   Eyes: {user.eyeColor}</div>
+                  <div>Build: {user.build}   Hair: {user.hairColor}</div>
+                </details>)
             })
           }
           </ul>
