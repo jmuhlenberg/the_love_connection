@@ -11,6 +11,6 @@ const likesSchema = new mongoose.Schema({
 
 })
 
-const likes = mongoose.model('likes', likesSchema)
+// const likes = mongoose.model('likes', likesSchema)
 
-module.exports = likes
+module.exports = {likesSchema}

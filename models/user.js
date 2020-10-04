@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   eyeColor: String,
   hairColor: String,
   image: String,
-  likes: Likes.schema
+  likes: [ Likes ]
 
 })
 

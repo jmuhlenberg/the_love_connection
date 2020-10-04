@@ -12,15 +12,20 @@ const User = require('../models/user.js')
 // INDEX ROUTE  WORKS IN POSTMAN//
 user.get('/', (req,res) => {
   User.find({}, (err, foundUsers) => {
-    res.json(foundUsers)
+    if (err) {
+      res.status(400).send('encountered an error');
+    } else {
+      res.json(foundUsers)
+    }
   })
 })
 
 // SPECIFIC USER ROUTE
 user.get('/:id', (req,res) => {
-  User.find({}, (err, foundUser) => {
+  const { id } = req.params;
+  User.find({ userid: id }, (err, foundUser) => {
     res.json(foundUser)
-  }).where('userid').eq('karen')
+  })
 })
 
 // CREATE ROUTE
