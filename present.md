@@ -1,4 +1,6 @@
-##Presentation
+## Presentation
+
+## Daniel
 Daniel Will Describe the website and do a brief crud demo….
 
 Describe the website:
@@ -21,6 +23,11 @@ Gender:Male
 Build: stocky
 EyeColor : brown
 HairColor:  red
+
+## jim will interject here...
+If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator.
+
+## back to Daniel
 
 Now…. Enter     margot722 as a userid …. This will give her a couple of matches
 

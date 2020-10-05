@@ -233,7 +233,7 @@ user.get('/sp/seed', async (req, res) => {
           build: "stocky",
           eyeColor: "brown",
           hairColor: "red",
-          image: "./images/abe721.jpeg",
+          image: "./images/abe721.png",
           likes:
             {
             age: "18-25",

@@ -277,6 +277,7 @@ class App extends React.Component {
       const greetingTag = this.state.thisusr
 
         ? <div className="form-container2">
+          <img src={this.state.thisusr.image} alt=""/>
             <h3 className="form-title2">Greetings {this.state.thisusr.name} </h3>
             <div className="label-font">Profile
               <div className="label-font">
@@ -384,6 +385,7 @@ class App extends React.Component {
               return(
                 <details>
                   <summary>Click to view {user.name}</summary>
+                  <img src={user.image} alt="" width="120" height="140"/>
                   <div>Gender: {user.gender}   Height: {user.height}</div>
                   <div>Age: {user.age}   Eyes: {user.eyeColor}</div>
                   <div>Build: {user.build}   Hair: {user.hairColor}</div>
