@@ -1,5 +1,3 @@
-// console.log('connected to app.js');
-
 function UserForm(props) {
   const {
     handleChange,
@@ -11,8 +9,8 @@ function UserForm(props) {
 
   return (
     <details>
-    <summary>{summText}</summary>
-      <form onSubmit={handleSubmit}>
+    <summary className="form-title">{summText}</summary>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="userid">User ID: </label>
         <input type="text" id="userid" onChange={handleChange} />
         <br/>
@@ -270,7 +268,7 @@ class App extends React.Component {
       : []
 
       const greetingTag = this.state.thisusr
-        ? <div>
+        ? <div className="form-container2">
             <h3>Greetings {this.state.thisusr.name} </h3>
             <div>Profile
               <div>
@@ -364,7 +362,7 @@ class App extends React.Component {
           <div className='logIn'>
           <h2>Log In</h2>
             <form onSubmit={this.getMatches}>
-              <label htmlFor='currUse'> User ID: </label>
+              <label id="login-label" htmlFor='currUse'> User ID: </label>
               <input type='text' id='currUse' onChange={this.handleChange}/>
               <input type='submit'/>
             </form>
