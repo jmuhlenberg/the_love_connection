@@ -1,11 +1,11 @@
 function UserForm(props) {
-  // const {
-  //   handleChange,
-  //   handleSubmit,
-  //   stateThisUsr,
-  //   props.btnText,
-  //
-  // }=props
+  const {
+    handleChange,
+    handleSubmit,
+    stateThisUsr,
+    props.btnText,
+
+  }=props
 
   return (
     <details>
