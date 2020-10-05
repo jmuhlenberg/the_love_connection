@@ -383,13 +383,27 @@ class App extends React.Component {
           {
             matches.map( user => {
               return(
-                <details>
-                  <summary>Click to view {user.name}</summary>
-                  <img src={user.image} alt="" width="120" height="140"/>
-                  <div>Gender: {user.gender}   Height: {user.height}</div>
-                  <div>Age: {user.age}   Eyes: {user.eyeColor}</div>
-                  <div>Build: {user.build}   Hair: {user.hairColor}</div>
-                </details>)
+                <div className="form-container3">
+                  <details>
+                    <summary className="form-title">Click to view {user.name}</summary>
+                    <div className="details">
+                    <div>
+                      <div className="details-img">
+                        <img className="match-img" src={user.image} alt="" width="120" height="140"/>
+                      </div>
+                      </div>
+                      <div className="details-details">
+                        <div className="label-font">Gender: {user.gender}</div>
+                        <div className="label-font">   Height: {user.height}</div>
+                        <div className="label-font">Age: {user.age}</div>
+                        <div className="label-font">Eyes: {user.eyeColor}</div>
+                        <div className="label-font">Build: {user.build} </div>
+                        <div className="label-font"> Hair: {user.hairColor}</div>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              )
             })
           }
           </ul>
