@@ -1,8 +1,8 @@
 body, html {
   text-align: center;
   /* background-color: #061581; */
-  background-color: #e056fd;
-  background-image: linear-gradient(315deg, #e056fd 0%, #000000 74%);
+  background-color: #9912c4;
+  /* background-image: linear-gradient(315deg, #e056fd 0%, #000000 74%); */
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -20,10 +20,20 @@ img {
 .form-container {
   background-color: #ceedf1;
   text-align: left;
-  width: 100%;
+  width: 90%;
   padding: 30px;
   border-radius: 10px;
-  font-family: 
+  font-family:
+
+}
+
+.form-container2 {
+  background-color: #ceedf1;
+  text-align: left;
+  width: 90%;
+  padding: 30px;
+  border-radius: 10px;
+  font-family:
 
 }
 

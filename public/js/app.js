@@ -3,25 +3,25 @@ function UserForm(props) {
     handleChange,
     handleSubmit,
     stateThisUsr,
-    props.btnText,
-
+    btnText,
+    summText
   }=props
 
   return (
     <details>
-    <summary className="form-title">{props.summText}</summary>
-      <form className="form-container" onSubmit={props.handleSubmit}>
+    <summary className="form-title">{summText}</summary>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="userid">User ID: </label>
-        <input type="text" id="userid" onChange={props.handleChange} />
+        <input type="text" id="userid" onChange={handleChange} />
         <br/>
         <label htmlFor="name">Name: </label>
-        <input type="text" id="name" onChange={props.handleChange} />
+        <input type="text" id="name" onChange={handleChange} />
         <br/>
         <label htmlFor="image">Profile Image: </label>
-        <input type="text" id="image" onChange={props.handleChange} />
+        <input type="text" id="image" onChange={handleChange} />
         <br/>
         <label htmlFor="age">Age: </label>
-        <select id='age' sonChange={props.handleChange}>
+        <select id='age' sonChange={handleChange}>
           <option value='18-25'>18-25</option>
           <option value='26-35'>26-35</option>
           <option value='36-40'>36-40</option>
@@ -30,20 +30,20 @@ function UserForm(props) {
         </select>
         <br/>
         <label htmlFor="height">Height: </label>
-        <select id='height' onChange={props.handleChange}>
+        <select id='height' onChange={handleChange}>
           <option value='short'>145-160cm</option>
           <option value='medium'>161-171cm</option>
           <option value='tall'>171-190cm</option>
         </select>
         <br/>
         <label htmlFor="gender">Gender: </label>
-        <select id='gender' onChange={props.handleChange}>
+        <select id='gender' onChange={handleChange}>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
         </select>
         <br/>
         <label htmlFor="build">Build: </label>
-        <select id='build' onChange={props.handleChange}>
+        <select id='build' onChange={handleChange}>
           <option value='slender'>Slender</option>
           <option value='athletic'>Athletic</option>
           <option value='stocky'>Stocky</option>
@@ -51,14 +51,14 @@ function UserForm(props) {
         </select>
         <br/>
         <label htmlFor="eyeColor">Eye Color: </label>
-        <select id='eyeColor' onChange={props.handleChange}>
+        <select id='eyeColor' onChange={handleChange}>
           <option value='brown'>Brown</option>
           <option value='blue'>Blue</option>
           <option value='green'>Green</option>
         </select>
         <br/>
         <label htmlFor="hairColor">Hair Color: </label>
-        <select id='hairColor' onChange={props.handleChange}>
+        <select id='hairColor' onChange={handleChange}>
           <option value='brown'>Brown</option>
           <option value='blonde'>Blonde</option>
           <option value='red'>Red</option>
@@ -69,7 +69,7 @@ function UserForm(props) {
         <div className='signUpLikes'>
           <span>Likes:</span><br/>
           <label htmlFor='likesAge'>Age Range: </label>
-          <select id='likesAge' onChange={props.handleChange}>
+          <select id='likesAge' onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='18-25'>18-25</option>
             <option value='26-35'>26-35</option>
@@ -79,7 +79,7 @@ function UserForm(props) {
           </select>
           <br/>
           <label htmlFor='likesHeight'>Height (in centimeters): </label>
-          <select id='likesHeight'  onChange={props.handleChange}>
+          <select id='likesHeight'  onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='short'>145-160cm</option>
             <option value='medium'>161-171cm</option>
@@ -87,14 +87,14 @@ function UserForm(props) {
           </select>
           <br/>
           <label htmlFor='likesGender'>Gender: </label>
-          <select id='likesGender' onChange={props.handleChange}>
+          <select id='likesGender' onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='male'>Male</option>
             <option value='female'>Female</option>
           </select>
           <br/>
           <label htmlFor='likesBuild'>Build: </label>
-          <select id='likesBuild' onChange={props.handleChange}>
+          <select id='likesBuild' onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='slender'>Slender</option>
             <option value='athletic'>Athletic</option>
@@ -103,7 +103,7 @@ function UserForm(props) {
           </select>
           <br/>
           <label htmlFor='likesEyeColor'>Eye Color: </label>
-          <select id='likesEyeColor' onChange={props.handleChange}>
+          <select id='likesEyeColor' onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
             <option value='blue'>Blue</option>
@@ -111,7 +111,7 @@ function UserForm(props) {
           </select>
           <br/>
           <label htmlFor='likesHairColor'>Hair Color: </label>
-          <select id='likesHairColor' onChange={props.handleChange}>
+          <select id='likesHairColor' onChange={handleChange}>
             <option value='none'>No Preference</option>
             <option value='brown'>Brown</option>
             <option value='blonde'>Blonde</option>
@@ -119,7 +119,7 @@ function UserForm(props) {
             <option value='grey'>Grey</option>
           </select>
         </div>
-        <input type='submit' value={props.btnText}/>
+        <input type='submit' value={btnText}/>
       </form>
     </details>
   )
@@ -268,7 +268,7 @@ class App extends React.Component {
       : []
 
       const greetingTag = this.state.thisusr
-        ? <div>
+        ? <div className="form-container2">
             <h3>Greetings {this.state.thisusr.name} </h3>
             <div>Profile
               <div>

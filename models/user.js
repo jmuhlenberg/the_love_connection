@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 const Likes = require('./likes.js')
 
@@ -12,7 +13,7 @@ const userSchema = new mongoose.Schema({
   eyeColor: String,
   hairColor: String,
   image: String,
-  likes: [ Likes ]
+  likes: Likes.schema
 
 })
 

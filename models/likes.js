@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 
 const likesSchema = new mongoose.Schema({
@@ -11,6 +12,6 @@ const likesSchema = new mongoose.Schema({
 
 })
 
-// const likes = mongoose.model('likes', likesSchema)
+const likes = mongoose.model('likes', likesSchema)
 
-module.exports = {likesSchema}
+module.exports = likes

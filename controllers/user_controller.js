@@ -1,4 +1,3 @@
-
 const express = require('express')
 const user = express.Router()
 const User = require('../models/user.js')
@@ -12,24 +11,26 @@ const User = require('../models/user.js')
 // INDEX ROUTE  WORKS IN POSTMAN//
 user.get('/', (req,res) => {
   User.find({}, (err, foundUsers) => {
-    if (err) {
-      res.status(400).send('encountered an error');
-    } else {
-      res.json(foundUsers)
-    }
+    res.json(foundUsers)
   })
 })
 
+
+
 // SPECIFIC USER ROUTE
 user.get('/:id', (req,res) => {
-  const { id } = req.params;
-  User.find({ userid: id }, (err, foundUser) => {
+  User.findOne({
+    userid: req.params.id
+  }, (err, foundUser) => {
     res.json(foundUser)
   })
 })
 
+
+
 // CREATE ROUTE
 user.post('/', (req, res) => {
+  console.log('you are in the post route')
   User.create(req.body, (err, createdUser) => {
     User.find({}, (err, foundUsers) => {
       res.json(foundUsers)
@@ -37,11 +38,10 @@ user.post('/', (req, res) => {
   })
 })
 
-/// READY TO GO
 
 // UPDATE ROUTE
-user.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(
+user.put('/:id', async (req, res) => {
+  await User.findByIdAndUpdate(
     req.params.id,
     req.body,
     {new: true},
@@ -49,18 +49,22 @@ user.put('/:id', (req, res) => {
       if (err) {
         res.send(err)
       } else {
-        User.find({}, (err, foundUser) => {
+        console.log('Updating user ' + req.params.id + ' in put route')
+        User.findOne({
+          userid:req.params.id
+        }, (err, foundUser) => {
           res.json(foundUser)
         })
       }
     })
 })
 
+
 // DELETE ROUTE
 user.delete('/:id', (req, res) => {
-  User.findByIdAndRemove(req.params.id, (err, deletedSong) => {
-    User.find({}, (err, foundSong) => {
-      res.json(foundSong)
+  User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
+    User.find({}, (err, deletedUser) => {
+      res.json(deletedUser)
     })
   })
 })
@@ -68,7 +72,9 @@ user.delete('/:id', (req, res) => {
 
 // SEED ROUTE?
 
-user.get('/seed', (req, res) => {
+user.get('/sp/seed', async (req, res) => {
+  await User.deleteMany({})
+  console.log('in user seed function')
     User.create(
       [
         {
@@ -95,11 +101,11 @@ user.get('/seed', (req, res) => {
         {
           userid: "don721",
           name: "Donny",
-          age: "young",
-          height: "tall",
+          age: "sunset",
+          height: "medium",
           gender: "male",
-          build: "slender",
-          eyeColor: "brown",
+          build: "stocky",
+          eyeColor: "blue",
           hairColor: "brown",
           image: " ",
           likes:
@@ -221,12 +227,12 @@ user.get('/seed', (req, res) => {
         {
           userid: "abe721",
           name: "Abe",
-          age: "mature",
+          age: "golden",
           height: "tall",
           gender: "male",
-          build: "slender",
-          eyeColor: "blue",
-          hairColor: "grey",
+          build: "stocky",
+          eyeColor: "brown",
+          hairColor: "red",
           image: " ",
           likes:
             {
@@ -330,8 +336,8 @@ user.get('/seed', (req, res) => {
           height: "short",
           gender: "female",
           build: "plus",
-          eyeColor: "brown",
-          hairColor: "blue",
+          eyeColor: "blue",
+          hairColor: "brown",
           image: " ",
           likes:
             {
@@ -489,12 +495,10 @@ user.get('/seed', (req, res) => {
             eyeColor: "blue",
             hairColor: "blonde"
             }
-
-        },
-
+        }
       ],
         (err, data) => {
-            res.send(data);
+            res.json(data);
         }
     )
 });
