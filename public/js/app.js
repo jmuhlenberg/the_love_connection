@@ -21,7 +21,7 @@ function UserForm(props) {
         <input type="text" id="image" onChange={handleChange} />
         <br/>
         <label htmlFor="age">Age: </label>
-        <select id='age' sonChange={handleChange}>
+        <select id='age' onChange={handleChange}>
           <option value='18-25'>18-25</option>
           <option value='26-35'>26-35</option>
           <option value='36-40'>36-40</option>
@@ -269,56 +269,56 @@ class App extends React.Component {
 
       const greetingTag = this.state.thisusr
         ? <div className="form-container2">
-            <h3>Greetings {this.state.thisusr.name} </h3>
-            <div>Profile
-              <div>
-                <div>
-                  <div>
+            <h3 className="form-title2">Greetings {this.state.thisusr.name} </h3>
+            <div className="label-font">Profile
+              <div className="label-font">
+                <div className="label-font">
+                  <div className="label-font">
                   User Id: {this.state.thisusr.userid}
                   </div>
-                <div>
+                <div className="label-font">
                 Name: {this.state.thisusr.name}
                 </div>
-                <div>
+                <div className="label-font">
                 Age: {this.state.thisusr.age}
                 </div>
-                <div>
+                <div className="label-font">
                 Height: {this.state.thisusr.height}
                 </div>
-                <div>
+                <div className="label-font">
                 Gender: {this.state.thisusr.gender}
                 </div>
-                <div>
+                <div className="label-font">
                 Build: {this.state.thisusr.build}
                 </div>
-                <div>
+                <div className="label-font">
                 Eye Color: {this.state.thisusr.eyeColor}
                 </div>
-                <div>
+                <div className="label-font">
                 Hair Color: {this.state.thisusr.hairColor}
                 </div>
-                <div>
+                <div className="label-font">
                 Image Tag: {this.state.thisusr.image}
                 </div>
-                <div>
+                <div className="label-font">
                 Likes:
                 </div>
-                <div>
+                <div className="label-font">
                 Gender: {this.state.thisusr.likes.gender}
                 </div>
-                <div>
+                <div className="label-font">
                 Build: {this.state.thisusr.likes.build}
                 </div>
-                <div>
+                <div className="label-font">
                 Hair Color: {this.state.thisusr.likes.hairColor}
                 </div>
-                <div>
+                <div className="label-font">
                 Eyd Color: {this.state.thisusr.likes.eyeColor}
                 </div>
-                <div>
+                <div className="label-font">
                 Age: {this.state.thisusr.likes.age}
                 </div>
-                <div>
+                <div className="label-font">
                 Height: {this.state.thisusr.likes.height}
                 </div>
               </div>
