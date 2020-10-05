@@ -7,18 +7,25 @@ body, html {
   background-size: cover;
   height: 100%;
   width: 100%;
+  font-family: 'Atomic Age', cursive;
 }
 
 img {
   border-radius: 20px;
   margin: 5px;
 }
+label {
+  color: white;
+}
+span {
+  color: white;
+}
 
 /* h1 {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS02tZqaDktBs33NZYRHYgzY0L_ectZ9AkeRw&usqp=CAU");
 } */
 .form-container {
-  background-color: #ceedf1;
+  background-color: #758991;
   text-align: left;
   width: 90%;
   padding: 30px;
@@ -28,13 +35,17 @@ img {
 }
 
 .form-container2 {
-  background-color: #ceedf1;
+  background-color: #758991;
   text-align: left;
-  width: 90%;
+  width: 85%;
   padding: 30px;
   border-radius: 10px;
   font-family:
 
+}
+
+.label-font{
+  color: white;
 }
 
 .action {
@@ -54,7 +65,10 @@ img {
   color: #75bcd8;
   font-size: 20px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
+
+
 
 h2 {
   text-align: center;
