@@ -24,21 +24,64 @@ Build: stocky
 EyeColor : brown
 HairColor:  red
 
-## jim will interject here...
-If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator.
+When you hit add new user margot's matches will appear at the bottom of the screen;
+
+Do a hard page refresh and explain that you're going to update Margot's record to wanting to date the same group of men but with blue eyes.....
+
+## after the hard refresh jim will interject here...
+If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator. refers to line XXX in app.js
 
 ## back to Daniel
+
 
 Now…. Enter     margot722 as a userid …. This will give her a couple of matches
 
 Update Margot with the exact same information except change the eye color to blue and she will get a different set of matches
 
-Then delete her and try and log back in and that should be the end of demonstrating CRUD.  If someone wants you to change data elements then politely explain that our sample data is stylized to show functionality and random hits would be rare.  (If pressed the math is…There are six attributes with at least 2 options a piece.  The odds of randomly hitting someone would be 1/2 raised to the 6th power or about 1 try in 75 attempts would yield a match - so back off it aint happening)
+## john will interject here about the matching process.  {add text here if you want.}
 
-Daniels Wins:
 
-Daniels Struggles:
+## Back to Daniel
+So we added, viewed, updated and now we'll delete Margot.  
 
-Most important thing you learned:
+Then delete her and try and log back in and that should be the end of demonstrating CRUD.  
 
-Was working on a team better or worse than working alone.
+## Daniels Wins:
+{daniel insert your info here}
+
+## Daniels Struggles:
+{daniel insert your info here}
+
+## Most important thing you learned:
+{daniel insert your info here}
+
+## Was working on a team better or worse than working alone?
+{daniel insert your info here}
+
+## Jim
+
+## Jim's Wins:
+My understanding of ternary operators and boolean toggles was really improved by from this process.  I have also become a big fan of the debug application in inspect.  It allows you to set breakpoints and actually see the values of variables while the application is running.  It was super useful.
+
+## Jim's Struggles:
+Our server.js routes were copies of the routes we had done for our other projects.  Well.... after we updated we brought back and put into a variable that was supposed to have one user in it an array of all the users.  This caused the application to error.  And the big takeaway is that you really need to think about what is coming back because I didn't and it was a 3 to 4 hour project to figure it out.
+
+## Most important thing you learned:
+to be super intentional / thoughtful about what is coming and going from functions.
+
+## Was working on a team better or worse than working alone?
+I was pleased to work with such a great group.  They were flexible and were nice when I did dumb things. We focused on the main goal of getting the project done right.  We communicated often - I'd work with Daniel and John again any time.
+
+## john
+
+## john's Wins:
+{john insert your info here}
+
+## john's Struggles:
+{john insert your info here}
+
+## Most important thing you learned:
+{John insert your info here}
+
+## Was working on a team better or worse than working alone?
+{John insert your info here}
