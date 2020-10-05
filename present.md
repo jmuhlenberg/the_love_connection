@@ -75,13 +75,13 @@ I was pleased to work with such a great group.  They were flexible and were nice
 ## john
 
 ## john's Wins:
-{john insert your info here}
+My wins include, working collaboratively as a team to achieve a goal, pushing ourselves to attempt very complex, technical problems and issues, and expanding my knowledge of how React works.
 
 ## john's Struggles:
-{john insert your info here}
+One of my biggest struggles was figuring out how to properly format the data to send to the database. I struggled with properly organizing an object within an object so they'd be uploaded to two relational databases.
 
 ## Most important thing you learned:
-{John insert your info here}
+The most important thing I gained was more patience. We solved very technical issues that required creative solutions and if I were by myself, I probably wouldn't have tackled such a project.
 
 ## Was working on a team better or worse than working alone?
-{John insert your info here}
+We worked very successfully as a team. I don't think there are necessarily pros or cons, but I see them more as adjustments one needs to make to become a productive team member.
