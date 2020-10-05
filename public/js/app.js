@@ -182,6 +182,13 @@ class App extends React.Component {
         .then(response => {
           // console.log(response.data);
       })
+      axios.get(`/user/${this.state.newUsr.userid}`).then(
+        (response) => {
+          this.setState({
+            thisusr: response.data
+          })
+        }
+      )
     }
   )}
 
@@ -268,12 +275,14 @@ class App extends React.Component {
       : []
 
       const greetingTag = this.state.thisusr
+
         ? <div className="form-container2">
             <h3 className="form-title2">Greetings {this.state.thisusr.name} </h3>
             <div className="label-font">Profile
               <div className="label-font">
                 <div className="label-font">
                   <div className="label-font">
+
                   User Id: {this.state.thisusr.userid}
                   </div>
                 <div className="label-font">
