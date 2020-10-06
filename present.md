@@ -37,6 +37,8 @@ If you look at the screen now you'll see it allows for the option of a new user 
 
 Now…. Enter     margot722 as a userid …. This will give her a couple of matches
 
+We added an OR operator (double bars ||) when updating the user profile so if the field is not updated it will keep the original value.
+
 Update Margot with the exact same information except change the eye color to blue and she will get a different set of matches
 
 
