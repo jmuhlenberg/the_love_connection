@@ -33,6 +33,7 @@ If you look at the screen now you'll see it allows for the option of a new user 
 
 ## back to Daniel
 
+The powerful OR operator allowed us to update only one attribute both within the user and their preferences otherwise we would have to go back in and change every placeholder
 
 Now…. Enter     margot722 as a userid …. This will give her a couple of matches
 
@@ -46,17 +47,20 @@ So we added, viewed, updated and now we'll delete Margot.
 
 Then delete her and try and log back in and that should be the end of demonstrating CRUD.  
 
-## Daniels Wins:
-{daniel insert your info here}
 
-## Daniels Struggles:
-{daniel insert your info here}
+##Daniel
 
-## Most important thing you learned:
-{daniel insert your info here}
+## Daniels Wins: 
+this is one of the most complex projects I've ever been about of. It showed me what a collaborative group effort of hard work can achieve in under a week. I learned a lot not only doing my part with css but what john and jim were able to achieve on the backend.
 
-## Was working on a team better or worse than working alone?
-{daniel insert your info here}
+Daniels Struggles: 
+we were trying to implement frameworks like materialize and material UI for css. Our trouble was that the documentation seemed like it wanted us to download and import files on our local devices for implementation and really havent learned that.
+
+Most important thing you learned: 
+how to work and collaborate on this stuff as a team
+
+Was working on a team better or worse than working alone: 
+pros and cons to each
 
 ## Jim
 
@@ -74,6 +78,8 @@ I was pleased to work with such a great group.  They were flexible and were nice
 
 ## john
 
+
+
 ## john's Wins:
 My wins include, working collaboratively as a team to achieve a complex goal, pushing ourselves to attempt very technical problems, and expanding my knowledge of how React works.
 
@@ -85,3 +91,4 @@ The most important thing I gained was more patience. We solved very technical is
 
 ## Was working on a team better or worse than working alone?
 We worked very successfully as a team. I don't think there are necessarily pros or cons, but I see them more as adjustments one needs to make to become a productive team member.
+
