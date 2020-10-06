@@ -19,26 +19,29 @@ Margot’s preferences do matter.
 
 Age: 18-25.  
 Height: tall.
-Gender: Male
-Build: stocky
-EyeColor : brown
-HairColor:  red
+Gender: Male.
+Build: stocky.
+EyeColor : brown.
+HairColor:  red.
 
 When you hit add new user margot's matches will appear at the bottom of the screen;
 
 Do a hard page refresh and explain that you're going to update Margot's record to wanting to date the same group of men but with blue eyes.....
 
+
 ## after the hard refresh jim will interject here...
 If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator. refers to line XXX in app.js
 
-## back to Daniel
 
+## back to Daniel
 
 Now…. Enter     margot722 as a userid …. This will give her a couple of matches
 
 Update Margot with the exact same information except change the eye color to blue and she will get a different set of matches
 
-## john will interject here about the matching process.  {add text here if you want.}
+
+## john will interject here about the matching process.  
+To correctly match the current user with potential matches in the database, we used the .filter method. We pulled the keys from the Likes model to compare the user preferences to other user attributes. For simplicity, we've forced the results to be total matches. If we had more time and maybe a little more knowledge we would have attempted installing a ranking system based on the attributes that matched.
 
 
 ## Back to Daniel
@@ -47,16 +50,16 @@ So we added, viewed, updated and now we'll delete Margot.
 Then delete her and try and log back in and that should be the end of demonstrating CRUD.  
 
 ## Daniels Wins:
-{daniel insert your info here}
+this is one of the most complex projects I've ever been about of. It showed me what a collaborative group effort of hard work can achieve in under a week. I learned a lot not only doing my part with css but what john and jim were able to achieve on the backend.
 
 ## Daniels Struggles:
-{daniel insert your info here}
+we were trying to implement frameworks like materialize and material UI for css. Our trouble was that the documentation seemed like it wanted us to download and import files on our local devices for implementation and really havent learned that.
 
 ## Most important thing you learned:
-{daniel insert your info here}
+how to work and collaborate on this stuff as a team
 
 ## Was working on a team better or worse than working alone?
-{daniel insert your info here}
+pros and cons to each
 
 ## Jim
 
@@ -78,10 +81,10 @@ I was pleased to work with such a great group.  They were flexible and were nice
 My wins include, working collaboratively as a team to achieve a complex goal, pushing ourselves to attempt very technical problems, and expanding my knowledge of how React works.
 
 ## john's Struggles:
-One of my biggest struggles was figuring out how to properly format the data to send to the database. I struggled with properly organizing an object within an object so they'd be uploaded to two relational databases.
+One of my biggest struggles was figuring out how to properly format the data to send to the database. I struggled with properly organizing an object within an object so they'd be uploaded to two related models.
 
 ## Most important thing you learned:
-The most important thing I gained was more patience. We solved very technical issues that required creative solutions and if I were by myself, I probably wouldn't have tackled such a project.
+The most important thing I gained was more patience. We solved very technical issues that required creative solutions and if I were by myself, I probably wouldn't have tackled such a project in as short amount of time.
 
 ## Was working on a team better or worse than working alone?
 We worked very successfully as a team. I don't think there are necessarily pros or cons, but I see them more as adjustments one needs to make to become a productive team member.
