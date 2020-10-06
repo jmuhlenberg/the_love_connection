@@ -80,16 +80,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "marco721",
           name: "Marco",
-          age: "adults",
-          height: "medium",
+          age: "18-25",
+          height: "tall",
           gender: "male",
-          build: "athletic",
-          eyeColor: "blue",
-          hairColor: "grey",
-          image: " ",
+          build: "stocky",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: "./images/marco721.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "tall",
             gender: "female",
             build: "slender",
@@ -101,16 +101,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "don721",
           name: "Donny",
-          age: "sunset",
-          height: "medium",
+          age: "18-25",
+          height: "tall",
           gender: "male",
           build: "stocky",
           eyeColor: "blue",
-          hairColor: "brown",
-          image: " ",
+          hairColor: "red",
+          image: "./images/don721.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "female",
             build: "slender",
@@ -122,16 +122,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "gus721",
           name: "Giuseppe",
-          age: "adults",
-          height: "short",
+          age: "18-25",
+          height: "tall",
           gender: "male",
-          build: "plus",
-          eyeColor: "brown",
-          hairColor: "blue",
-          image: " ",
+          build: "stocky",
+          eyeColor: "blue",
+          hairColor: "red",
+          image: "./images/gus721.jpeg",
           likes:
             {
-            age: "golden",
+            age: "18-25",
             height: "tall",
             gender: "female",
             build: "stocky",
@@ -143,16 +143,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "ant721",
           name: "Anthony",
-          age: "sunset",
-          height: "medium",
+          age: "18-25",
+          height: "tall",
           gender: "male",
           build: "stocky",
-          eyeColor: "blue",
-          hairColor: "brown",
-          image: " ",
+          eyeColor: "brown",
+          hairColor: "red",
+          image: "./images/ant721.jpeg",
           likes:
             {
-            age: "adults",
+            age: "18-25",
             height: "medium",
             gender: "female",
             build: "slender",
@@ -164,16 +164,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "dom721",
           name: "Dominic",
-          age: "sunset",
+          age: "18-25",
           height: "short",
           gender: "male",
           build: "slender",
           eyeColor: "blue",
           hairColor: "grey",
-          image: " ",
+          image: "./images/dom721.jpeg",
           likes:
             {
-            age: "sunset",
+            age: "18-25",
             height: "short",
             gender: "female",
             build: "slender",
@@ -185,16 +185,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "vito721",
           name: "Vito",
-          age: "adults",
+          age: "18-25",
           height: "medium",
           gender: "male",
           build: "plus",
           eyeColor: "brown",
           hairColor: "grey",
-          image: " ",
+          image: "./images/vito721.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "tall",
             gender: "female",
             build: "plus",
@@ -206,16 +206,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "lou721",
           name: "Lou",
-          age: "adults",
+          age: "18-25",
           height: "tall",
           gender: "male",
           build: "plus",
           eyeColor: "brown",
           hairColor: "brown",
-          image: " ",
+          image: "./images/lou721.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "short",
             gender: "female",
             build: "slender",
@@ -227,16 +227,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "abe721",
           name: "Abe",
-          age: "golden",
+          age: "18-25",
           height: "tall",
           gender: "male",
           build: "stocky",
           eyeColor: "brown",
           hairColor: "red",
-          image: " ",
+          image: "./images/abe721.png",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "female",
             build: "stocky",
@@ -248,16 +248,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "sonny721",
           name: "Sonny",
-          age: "adults",
+          age: "18-25",
           height: "tall",
           gender: "male",
           build: "athletic",
           eyeColor: "brown",
           hairColor: "red",
-          image: " ",
+          image: "./images/sonny721.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "female",
             build: "slender",
@@ -269,16 +269,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "fred721",
           name: "Fredo",
-          age: "adults",
+          age: "18-25",
           height: "medium",
           gender: "male",
           build: "slender",
           eyeColor: "brown",
           hairColor: "red",
-          image: " ",
+          image: "./images/fred721.jpeg",
           likes:
             {
-            age: "sunset",
+            age: "18-25",
             height: "medium",
             gender: "female",
             build: "athletic",
@@ -288,7 +288,7 @@ user.get('/sp/seed', async (req, res) => {
 
         },
         {
-          userid: "gina722",
+          userid: "18-25",
           name: "Gina",
           age: "adults",
           height: "medium",
@@ -296,10 +296,10 @@ user.get('/sp/seed', async (req, res) => {
           build: "athletic",
           eyeColor: "blue",
           hairColor: "grey",
-          image: " ",
+          image: "./images/gina722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "tall",
             gender: "male",
             build: "slender",
@@ -311,16 +311,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "donna722",
           name: "Donna",
-          age: "young",
+          age: "18-25",
           height: "tall",
           gender: "female",
           build: "slender",
           eyeColor: "brown",
           hairColor: "brown",
-          image: " ",
+          image: "./images/donna722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "male",
             build: "slender",
@@ -332,16 +332,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "maria722",
           name: "maria",
-          age: "adults",
+          age: "18-25",
           height: "short",
           gender: "female",
           build: "plus",
           eyeColor: "blue",
           hairColor: "brown",
-          image: " ",
+          image: "./images/maria722.jpeg",
           likes:
             {
-            age: "golden",
+            age: "18-25",
             height: "tall",
             gender: "male",
             build: "stocky",
@@ -353,16 +353,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "sara722",
           name: "sara",
-          age: "sunset",
+          age: "18-25",
           height: "medium",
           gender: "female",
           build: "stocky",
           eyeColor: "blue",
           hairColor: "brown",
-          image: " ",
+          image: "./images/sara722.jpeg",
           likes:
             {
-            age: "adults",
+            age: "18-25",
             height: "medium",
             gender: "male",
             build: "slender",
@@ -374,16 +374,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "anna722",
           name: "anna",
-          age: "sunset",
+          age: "18-25",
           height: "short",
           gender: "female",
           build: "slender",
           eyeColor: "blue",
           hairColor: "grey",
-          image: " ",
+          image: "./images/anna722.jpeg",
           likes:
             {
-            age: "sunset",
+            age: "18-25",
             height: "short",
             gender: "male",
             build: "slender",
@@ -395,16 +395,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "angela722",
           name: "angela",
-          age: "adults",
+          age: "18-25",
           height: "medium",
           gender: "female",
           build: "plus",
           eyeColor: "brown",
           hairColor: "grey",
-          image: " ",
+          image: "./images/angela722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "tall",
             gender: "male",
             build: "plus",
@@ -414,18 +414,18 @@ user.get('/sp/seed', async (req, res) => {
 
         },
         {
-          userid: "stella721",
+          userid: "stella722",
           name: "stella",
-          age: "adults",
+          age: "18-25",
           height: "tall",
           gender: "female",
           build: "plus",
           eyeColor: "brown",
           hairColor: "brown",
-          image: " ",
+          image: "./images/stella722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "short",
             gender: "male",
             build: "slender",
@@ -437,16 +437,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "fran722",
           name: "francesca",
-          age: "mature",
+          age: "18-25",
           height: "tall",
           gender: "female",
           build: "slender",
           eyeColor: "blue",
           hairColor: "grey",
-          image: " ",
+          image: "./images/fran722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "male",
             build: "stocky",
@@ -458,16 +458,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "samantha722",
           name: "Samantha",
-          age: "adults",
+          age: "18-25",
           height: "tall",
           gender: "female",
           build: "athletic",
           eyeColor: "brown",
           hairColor: "red",
-          image: " ",
+          image: "./images/samantha722.jpeg",
           likes:
             {
-            age: "young",
+            age: "18-25",
             height: "medium",
             gender: "male",
             build: "slender",
@@ -479,16 +479,16 @@ user.get('/sp/seed', async (req, res) => {
         {
           userid: "fredrica722",
           name: "Fredrica",
-          age: "adults",
+          age: "18-25",
           height: "medium",
           gender: "female",
           build: "slender",
           eyeColor: "brown",
           hairColor: "red",
-          image: " ",
+          image: "./images/fredrica722.jpeg",
           likes:
             {
-            age: "sunset",
+            age: "18-25",
             height: "medium",
             gender: "male",
             build: "athletic",

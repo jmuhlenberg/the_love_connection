@@ -1,39 +1,117 @@
-/* *{
-  border: 1px solid lightblue;
-} */
-
-h1{
+body, html {
   text-align: center;
+  /* background-color: #061581; */
+  background-color: #9912c4;
+  /* background-image: linear-gradient(315deg, #e056fd 0%, #000000 74%); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  font-family: 'Atomic Age', cursive;
 }
 
-
-li{
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-basis: 24%;
-  margin: 3%;
-  padding: 2%;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 4px grey;
+img {
+  border-radius: 20px;
+  margin: 5px;
+}
+label {
+  color: white;
+}
+span {
+  color: white;
 }
 
-.action{
+.match-img:hover {
+  height: 300px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+/* h1 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS02tZqaDktBs33NZYRHYgzY0L_ectZ9AkeRw&usqp=CAU");
+} */
+.form-container {
+  background-color: #758991;
+  text-align: left;
+  width: 90%;
+  padding: 30px;
+  border-radius: 10px;
+  font-family:
+
+}
+
+.form-container2 {
+  background-color: #758991;
+  text-align: left;
+  width: 85%;
+  padding: 30px;
+  border-radius: 10px;
+  font-family:
+
+}
+
+.form-container3 {
+  background-color: #758991;
+  text-align: left;
+  width: 95%;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+
 }
 
-.signUp{
+.details {
+  display: flex;
+  width: 100%;
+
+}
+
+.details-img {
   width: 48%;
-  text-align: center;
+
 }
 
-.logIn{
+.details-details {
   width: 48%;
-  text-align: center;
 }
 
-.hide{
-  display: none;
+
+.label-font{
+  color: white;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+}
+
+#login-label {
+  text-align: center;
+  text-shadow: 2px 3px 5px red;
+  color: #75bcd8;
+}
+.form-title {
+  text-align: center;
+  text-shadow: 2px 3px 5px red;
+  color: #75bcd8;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+
+
+h2 {
+  text-align: center;
+  text-shadow: 2px 3px 5px red;
+  color: #75bcd8;
+}
+
+h3 {
+  text-align: center;
+  text-shadow: 2px 3px 5px red;
+  color: #75bcd8;
 }
