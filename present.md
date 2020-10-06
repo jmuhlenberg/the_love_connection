@@ -35,10 +35,10 @@ Update Margot with the exact same information except change the eye color to blu
 
 Then delete her and try and log back in and that should be the end of demonstrating CRUD.  If someone wants you to change data elements then politely explain that our sample data is stylized to show functionality and random hits would be rare.  (If pressed the math is…There are six attributes with at least 2 options a piece.  The odds of randomly hitting someone would be 1/2 raised to the 6th power or about 1 try in 75 attempts would yield a match - so back off it aint happening)
 
-Daniels Wins:
+Daniels Wins: this is one of the most complex projects I've ever been about of. It showed me what a collaborative group effort of hard work can achieve in under a week. I learned a lot not only doing my part with css but what john and jim were able to achieve on the backend.
 
-Daniels Struggles:
+Daniels Struggles: we were trying to implement frameworks like materialize and material UI for css. Our trouble was that the documentation seemed like it wanted us to download and import files on our local devices for implementation and really havent learned that.
 
-Most important thing you learned:
+Most important thing you learned: how to work and collaborate on this stuff as a team
 
-Was working on a team better or worse than working alone.
+Was working on a team better or worse than working alone: pros and cons to each
