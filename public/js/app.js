@@ -20,8 +20,9 @@ function UserForm(props) {
         <label htmlFor="image">Profile Image: </label>
         <input type="text" id="image" onChange={handleChange} />
         <br/>
-        <label htmlFor="age">Age: </label>
+        <label htmlFor="age">Age Range: </label>
         <select id='age' onChange={handleChange}>
+          <option value='none'>--Age Range--</option>
           <option value='18-25'>18-25</option>
           <option value='26-35'>26-35</option>
           <option value='36-40'>36-40</option>
@@ -31,6 +32,7 @@ function UserForm(props) {
         <br/>
         <label htmlFor="height">Height: </label>
         <select id='height' onChange={handleChange}>
+          <option value='none'>--Height--</option>
           <option value='short'>145-160cm</option>
           <option value='medium'>161-171cm</option>
           <option value='tall'>171-190cm</option>
@@ -38,12 +40,14 @@ function UserForm(props) {
         <br/>
         <label htmlFor="gender">Gender: </label>
         <select id='gender' onChange={handleChange}>
+          <option value='none'>--Gender--</option>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
         </select>
         <br/>
         <label htmlFor="build">Build: </label>
         <select id='build' onChange={handleChange}>
+          <option value='none'>--Build--</option>
           <option value='slender'>Slender</option>
           <option value='athletic'>Athletic</option>
           <option value='stocky'>Stocky</option>
@@ -52,6 +56,7 @@ function UserForm(props) {
         <br/>
         <label htmlFor="eyeColor">Eye Color: </label>
         <select id='eyeColor' onChange={handleChange}>
+          <option value='none'>--Eye Color--</option>
           <option value='brown'>Brown</option>
           <option value='blue'>Blue</option>
           <option value='green'>Green</option>
@@ -59,6 +64,7 @@ function UserForm(props) {
         <br/>
         <label htmlFor="hairColor">Hair Color: </label>
         <select id='hairColor' onChange={handleChange}>
+          <option value='none'>--Hair Color--</option>
           <option value='brown'>Brown</option>
           <option value='blonde'>Blonde</option>
           <option value='red'>Red</option>
@@ -70,7 +76,7 @@ function UserForm(props) {
           <span>Likes:</span><br/>
           <label htmlFor='likesAge'>Age Range: </label>
           <select id='likesAge' onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Age--</option>
             <option value='18-25'>18-25</option>
             <option value='26-35'>26-35</option>
             <option value='36-40'>36-40</option>
@@ -80,7 +86,7 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesHeight'>Height (in centimeters): </label>
           <select id='likesHeight'  onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Height--</option>
             <option value='short'>145-160cm</option>
             <option value='medium'>161-171cm</option>
             <option value='tall'>171-190cm</option>
@@ -88,14 +94,14 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesGender'>Gender: </label>
           <select id='likesGender' onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Gender--</option>
             <option value='male'>Male</option>
             <option value='female'>Female</option>
           </select>
           <br/>
           <label htmlFor='likesBuild'>Build: </label>
           <select id='likesBuild' onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Build--</option>
             <option value='slender'>Slender</option>
             <option value='athletic'>Athletic</option>
             <option value='stocky'>Stocky</option>
@@ -104,7 +110,7 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesEyeColor'>Eye Color: </label>
           <select id='likesEyeColor' onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Eye Color--</option>
             <option value='brown'>Brown</option>
             <option value='blue'>Blue</option>
             <option value='green'>Green</option>
@@ -112,7 +118,7 @@ function UserForm(props) {
           <br/>
           <label htmlFor='likesHairColor'>Hair Color: </label>
           <select id='likesHairColor' onChange={handleChange}>
-            <option value='none'>No Preference</option>
+            <option value='none'>--Hair Color--</option>
             <option value='brown'>Brown</option>
             <option value='blonde'>Blonde</option>
             <option value='red'>Red</option>
@@ -213,22 +219,22 @@ class App extends React.Component {
     console.log("state variables" , this.state);
     this.setState({
       updateUsr: {
-        userid: this.state.userid,
-        name: this.state.name,
-        age: this.state.age,
-        height: this.state.height,
-        gender: this.state.gender,
-        build: this.state.build,
-        eyeColor: this.state.eyeColor,
-        hairColor: this.state.hairColor,
-        image: this.state.image,
+        userid: this.state.userid  || this.state.thisusr.userid,
+        name: this.state.name  || this.state.thisusr.name,
+        age: this.state.age  || this.state.thisusr.age,
+        height: this.state.height  || this.state.thisusr.height,
+        gender: this.state.gender  || this.state.thisusr.gender,
+        build: this.state.build  || this.state.thisusr.build,
+        eyeColor: this.state.eyeColor  || this.state.thisusr.eyeColor,
+        hairColor: this.state.hairColor || this.state.thisusr.hairColor,
+        image: this.state.image  || this.state.thisusr.image,
         likes: {
-          age: this.state.likesAge,
-          height: this.state.likesHeight,
-          gender: this.state.likesGender,
-          build: this.state.likesBuild,
-          eyeColor: this.state.likesEyeColor,
-          hairColor: this.state.likesHairColor
+          age: this.state.likesAge  || this.state.thisusr.likes.age,
+          height: this.state.likesHeight || this.state.thisusr.likes.height,
+          gender: this.state.likesGender  || this.state.thisusr.likes.gender,
+          build: this.state.likesBuild || this.state.thisusr.likes.build,
+          eyeColor: this.state.likesEyeColor  || this.state.thisusr.likes.eyeColor,
+          hairColor: this.state.likesHairColor  || this.state.thisusr.likes.hairColor
         }
       }
     }, () => {
@@ -311,6 +317,8 @@ class App extends React.Component {
                 Image Tag: {this.state.thisusr.image}
                 </div>
                 <div className="label-font">
+                <br/>
+                <br/>
                 Likes:
                 </div>
                 <div className="label-font">
@@ -323,7 +331,7 @@ class App extends React.Component {
                 Hair Color: {this.state.thisusr.likes.hairColor}
                 </div>
                 <div className="label-font">
-                Eyd Color: {this.state.thisusr.likes.eyeColor}
+                Eye Color: {this.state.thisusr.likes.eyeColor}
                 </div>
                 <div className="label-font">
                 Age: {this.state.thisusr.likes.age}
