@@ -30,7 +30,7 @@ Do a hard page refresh and explain that you're going to update Margot's record t
 
 
 ## after the hard refresh jim will interject here...
-If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator. refers to line XXX in app.js
+If you look at the screen now you'll see it allows for the option of a new user or an existing user.  After he puts in the new id the idea of a new user is suspended and only the existing user's information is displayed.  This was done through the use of a ternary operator. refers to line 345 in app.js
 
 
 ## back to Daniel
