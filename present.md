@@ -17,9 +17,9 @@ I’ll create Margo
 
 Margot’s preferences do matter.  
 
-Age: 26-35.  
+Age: 18-25.  
 Height: tall.
-Gender:Male
+Gender: Male
 Build: stocky
 EyeColor : brown
 HairColor:  red
@@ -75,7 +75,7 @@ I was pleased to work with such a great group.  They were flexible and were nice
 ## john
 
 ## john's Wins:
-My wins include, working collaboratively as a team to achieve a goal, pushing ourselves to attempt very complex, technical problems and issues, and expanding my knowledge of how React works.
+My wins include, working collaboratively as a team to achieve a complex goal, pushing ourselves to attempt very technical problems, and expanding my knowledge of how React works.
 
 ## john's Struggles:
 One of my biggest struggles was figuring out how to properly format the data to send to the database. I struggled with properly organizing an object within an object so they'd be uploaded to two relational databases.

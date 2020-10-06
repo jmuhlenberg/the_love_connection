@@ -24,3 +24,7 @@ General Assembly SEIR Unit 03 Group Project
 
 
 ##Areas of Improvement
+
+  We would have liked to add a rating system in which users were rated based on the likes that matched.
+
+  Another wish list item would have been to add a CSS framework. 
