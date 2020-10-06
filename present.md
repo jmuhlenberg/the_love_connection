@@ -87,4 +87,4 @@ One of my biggest struggles was figuring out how to properly format the data to 
 The most important thing I gained was more patience. We solved very technical issues that required creative solutions and if I were by myself, I probably wouldn't have tackled such a project in as short amount of time.
 
 ## Was working on a team better or worse than working alone?
-We worked very successfully as a team. I don't think there are necessarily pros or cons, but I see them more as adjustments one needs to make to become a productive team member.
+We worked very successfully as a team. I don't think there are necessarily pros or cons, but I see them more as adjustments one needs to make to become a productive team member. Where one struggled to resolve an issue another was able to offer a constructive solution or at least a step forward.
