@@ -317,6 +317,8 @@ class App extends React.Component {
                 Image Tag: {this.state.thisusr.image}
                 </div>
                 <div className="label-font">
+                <br/>
+                <br/>
                 Likes:
                 </div>
                 <div className="label-font">

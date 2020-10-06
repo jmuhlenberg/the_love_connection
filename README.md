@@ -8,7 +8,7 @@ General Assembly SEIR Unit 03 Group Project
 
   This project entailed working with a group to create a full CRUD (create, read, update, delete) application using the MERN (Mongoose, Express, React, and Node.js) stack. We implemented two models (Users and Likes) and related these to each other in a one-to-one relationship. This project's database was hosted on Mongo Atlas and deployed online via Heroku.
 
-  Link:
+  Link: http://theloveconnection.herokuapp.com/
 
   To organize the data we wrote a user story, created wireframes, and used Trello to track tasks. We implemented the Materialize CSS framework to stylize the site.
 
@@ -27,4 +27,6 @@ General Assembly SEIR Unit 03 Group Project
 
   We would have liked to add a rating system in which users were rated based on the likes that matched.
 
-  Another wish list item would have been to add a CSS framework. 
+  Improving the user experience so that when you are logged in, you can continue to edit your profile and view matches until you log out.
+
+  Another wish list item would have been to add a CSS framework. We attempted using Materialize and Material UI, but were unsuccessful implementing.
